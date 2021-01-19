@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/orange.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 16 )
+
+[node name="Tiles" type="Node2D"]
+
+[node name="orange" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+region_rect = Rect2( 130, 287, 114, 114 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="orange"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="orange/KinematicBody2D"]
+position = Vector2( 16, 16 )
+shape = SubResource( 1 )
+
