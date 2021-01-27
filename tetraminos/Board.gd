@@ -21,11 +21,19 @@ func _process(delta):
 		# se nao ocorre colisao com outros blocos e com a
 		# borda do tabuleiro. Caso nao ocorra colisao, realizamos
 		# a rotacao
-		if not $S.test_move(transform2d, Vector2(0, 0), false):
+		var let_rotate = true
+
+		if $S/RayCast2D_1.is_colliding() or $S/RayCast2D_2.is_colliding():
+			print("Collision raycast 1")
+			let_rotate = false
+
+		if $S.test_move(transform2d, Vector2(0, 0), false):
+			let_rotate = false
+			print("collision!!!")
+
+		if let_rotate:
 			angle += PI/2
 			$S.rotation = angle
-		else:
-			print("collision!!!")
 
 	elif Input.is_action_just_pressed("ui_left"):
 		velocity.x -= 1

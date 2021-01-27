@@ -74,3 +74,16 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tilex2"]
 shape = SubResource( 4 )
+
+[node name="Tilex4" type="KinematicBody2D" parent="."]
+position = Vector2( 48, 528 )
+collision/safe_margin = 0.001
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Tilex4"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tilex4"]
+shape = SubResource( 4 )
