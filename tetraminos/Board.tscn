@@ -14,13 +14,14 @@ extents = Vector2( 16, 320 )
 extents = Vector2( 16, 320 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 16, 16 )
+extents = Vector2( 15.95, 15.95 )
 
 [node name="Board" type="Node"]
 script = ExtResource( 3 )
 
 [node name="S" parent="." instance=ExtResource( 1 )]
 position = Vector2( 144, 48 )
+collision/safe_margin = 0.1
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2( 160, 656 )
@@ -51,7 +52,7 @@ shape = SubResource( 3 )
 
 [node name="Tilex" type="KinematicBody2D" parent="."]
 position = Vector2( 144, 624 )
-collision/safe_margin = 0.001
+collision/safe_margin = 0.1
 __meta__ = {
 "_edit_group_": true
 }
@@ -63,8 +64,8 @@ texture = ExtResource( 2 )
 shape = SubResource( 4 )
 
 [node name="Tilex2" type="KinematicBody2D" parent="."]
-position = Vector2( 192, 624 )
-collision/safe_margin = 0.001
+position = Vector2( 208, 624 )
+collision/safe_margin = 0.1
 __meta__ = {
 "_edit_group_": true
 }
@@ -77,7 +78,7 @@ shape = SubResource( 4 )
 
 [node name="Tilex4" type="KinematicBody2D" parent="."]
 position = Vector2( 304, 624 )
-collision/safe_margin = 0.001
+collision/safe_margin = 0.1
 __meta__ = {
 "_edit_group_": true
 }
