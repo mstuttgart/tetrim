@@ -2,9 +2,11 @@ extends Node
 
 const TILE_SIZE = 32
 
+var time_to_fall = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    pass
+    $FallingTimer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # warning-ignore:unused_argument
@@ -21,10 +23,15 @@ func _process(delta):
     elif Input.is_action_just_pressed("ui_right"):
         velocity.x += 1
 
-    elif Input.is_action_just_pressed("ui_down"):
+    elif Input.is_action_just_pressed("ui_down") or time_to_fall:
         velocity.y += 1
+        time_to_fall = false
 
     if velocity.length() > 0:
         velocity = velocity.normalized() * TILE_SIZE
 
     $Player.move_and_collide(velocity)
+
+
+func _on_FallingTimer_timeout():
+    time_to_fall = true

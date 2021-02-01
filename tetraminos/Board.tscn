@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://blocks/S.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/orange.png" type="Texture" id=2]
 [ext_resource path="res://Board.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -12,9 +11,6 @@ extents = Vector2( 16, 320 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 16, 320 )
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 15.95, 15.95 )
 
 [node name="Board" type="Node"]
 script = ExtResource( 3 )
@@ -50,41 +46,8 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight"]
 shape = SubResource( 3 )
 
-[node name="Tilex" type="KinematicBody2D" parent="."]
-position = Vector2( 144, 624 )
-collision/safe_margin = 0.1
+[node name="FallingTimer" type="Timer" parent="."]
 __meta__ = {
-"_edit_group_": true
+"_editor_description_": "Timer to move block to down"
 }
-
-[node name="Sprite" type="Sprite" parent="Tilex"]
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tilex"]
-shape = SubResource( 4 )
-
-[node name="Tilex2" type="KinematicBody2D" parent="."]
-position = Vector2( 208, 624 )
-collision/safe_margin = 0.1
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Tilex2"]
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tilex2"]
-shape = SubResource( 4 )
-
-[node name="Tilex4" type="KinematicBody2D" parent="."]
-position = Vector2( 304, 624 )
-collision/safe_margin = 0.1
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Tilex4"]
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tilex4"]
-shape = SubResource( 4 )
+[connection signal="timeout" from="FallingTimer" to="." method="_on_FallingTimer_timeout"]
