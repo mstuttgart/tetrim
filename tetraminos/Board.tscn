@@ -45,6 +45,7 @@ __meta__ = {
 shape = SubResource( 3 )
 
 [node name="FallingTimer" type="Timer" parent="."]
+wait_time = 0.5
 __meta__ = {
 "_editor_description_": "Timer to move block to down"
 }
