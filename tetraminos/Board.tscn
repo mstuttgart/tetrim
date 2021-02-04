@@ -15,7 +15,7 @@ extents = Vector2( 16, 320 )
 script = ExtResource( 3 )
 
 [node name="StartPosition" type="Position2D" parent="."]
-position = Vector2( 160, -16 )
+position = Vector2( 176, -16 )
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2( 160, 656 )
