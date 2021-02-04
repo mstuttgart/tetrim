@@ -44,7 +44,6 @@ __meta__ = {
 texture = ExtResource( 1 )
 
 [node name="Tile4_Shape" type="CollisionShape2D" parent="."]
-modulate = Color( 0.756863, 0.470588, 0.470588, 1 )
 shape = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true
