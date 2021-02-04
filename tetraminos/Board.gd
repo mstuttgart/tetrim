@@ -20,6 +20,7 @@ func _ready():
     # Start timer of falling block
     $FallingTimer.start()
 
+    # Load player block
     _get_player_block()
 
 
@@ -52,11 +53,20 @@ func _process(delta):
             stop_block += 1
 
         if stop_block == 2:
+            # Block no can fall
             stop_block = 0
+
+            # Save current player block to group
+            player_block.add_to_group('stuck_blocks')
+
+            # Generate a new block to player
+            _get_player_block()
+            return
 
     if velocity.length() > 0:
         velocity = velocity.normalized() * TILE_SIZE
 
+    # Check collision and move block
     player_block.move_and_collide(velocity)
 
 
