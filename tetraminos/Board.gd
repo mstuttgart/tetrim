@@ -53,7 +53,7 @@ func _process(delta):
             stop_block += 1
 
         if stop_block == 2:
-            # Block no can fall
+            # Block not can fall
             stop_block = 0
 
             # Save current player block to group
@@ -74,11 +74,11 @@ func _get_player_block():
 
     var idx = rand_range(0, block_list.size() - 1)
 
-    # Instanciamos o player
+    # Instance player block
     player_block = block_list[idx].instance()
     player_block.position = $StartPosition.position
 
-    # Adicionamos o player a tree principal
+    # Add player to board tree
     add_child(player_block)
 
 
