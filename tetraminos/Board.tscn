@@ -1,5 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
+[ext_resource path="res://blocks/Tile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Position.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Board.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -11,16 +13,27 @@ extents = Vector2( 16, 320 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 16, 320 )
 
-[node name="Board" type="Node"]
+[node name="Board" type="Node2D"]
 script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 320.0
+margin_bottom = 640.0
+color = Color( 0.156863, 0.156863, 0.156863, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="StartPosition" type="Position2D" parent="."]
 position = Vector2( 176, -16 )
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2( 160, 656 )
+collision_layer = 4
+collision_mask = 3
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_lock_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
@@ -28,8 +41,11 @@ shape = SubResource( 1 )
 
 [node name="WallLeft" type="StaticBody2D" parent="."]
 position = Vector2( -16, 320 )
+collision_layer = 4
+collision_mask = 3
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_lock_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft"]
@@ -37,8 +53,11 @@ shape = SubResource( 2 )
 
 [node name="WallRight" type="StaticBody2D" parent="."]
 position = Vector2( 336, 320 )
+collision_layer = 4
+collision_mask = 3
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_lock_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight"]
@@ -49,4 +68,75 @@ wait_time = 0.5
 __meta__ = {
 "_editor_description_": "Timer to move block to down"
 }
+
+[node name="PositionCursor" type="Node2D" parent="."]
+
+[node name="Position_00" parent="PositionCursor" instance=ExtResource( 2 )]
+position = Vector2( 0, 624 )
+
+[node name="Position_01" parent="PositionCursor" instance=ExtResource( 2 )]
+position = Vector2( 0, 592 )
+
+[node name="Position_02" parent="PositionCursor" instance=ExtResource( 2 )]
+position = Vector2( 0, 560 )
+
+[node name="Position_03" parent="PositionCursor" instance=ExtResource( 2 )]
+position = Vector2( 0, 528 )
+
+[node name="Position_04" parent="PositionCursor" instance=ExtResource( 2 )]
+position = Vector2( 0, 496 )
+
+[node name="Position_05" parent="PositionCursor" instance=ExtResource( 2 )]
+position = Vector2( 0, 464 )
+
+[node name="Position_06" parent="PositionCursor" instance=ExtResource( 2 )]
+position = Vector2( 0, 432 )
+
+[node name="Position_07" parent="PositionCursor" instance=ExtResource( 2 )]
+position = Vector2( 0, 400 )
+
+[node name="Position_08" parent="PositionCursor" instance=ExtResource( 2 )]
+position = Vector2( 0, 368 )
+
+[node name="Position_09" parent="PositionCursor" instance=ExtResource( 2 )]
+position = Vector2( 0, 336 )
+
+[node name="Position_10" parent="PositionCursor" instance=ExtResource( 2 )]
+position = Vector2( 0, 304 )
+
+[node name="Position_11" parent="PositionCursor" instance=ExtResource( 2 )]
+position = Vector2( 0, 272 )
+
+[node name="Position_12" parent="PositionCursor" instance=ExtResource( 2 )]
+position = Vector2( 0, 240 )
+
+[node name="Position_13" parent="PositionCursor" instance=ExtResource( 2 )]
+position = Vector2( 0, 208 )
+
+[node name="Position_14" parent="PositionCursor" instance=ExtResource( 2 )]
+position = Vector2( 0, 176 )
+
+[node name="Position_15" parent="PositionCursor" instance=ExtResource( 2 )]
+position = Vector2( 0, 144 )
+
+[node name="Position_16" parent="PositionCursor" instance=ExtResource( 2 )]
+position = Vector2( 0, 112 )
+
+[node name="Position_17" parent="PositionCursor" instance=ExtResource( 2 )]
+position = Vector2( 0, 80 )
+
+[node name="Position_18" parent="PositionCursor" instance=ExtResource( 2 )]
+position = Vector2( 0, 48 )
+
+[node name="Position_19" parent="PositionCursor" instance=ExtResource( 2 )]
+position = Vector2( 0, 16 )
+
+[node name="Tile" parent="." instance=ExtResource( 1 )]
+position = Vector2( 16, 624 )
+
+[node name="Tile2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 304, 624 )
+
+[node name="Tile3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 304, 560 )
 [connection signal="timeout" from="FallingTimer" to="." method="_on_FallingTimer_timeout"]
