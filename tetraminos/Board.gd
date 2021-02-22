@@ -1,6 +1,6 @@
 extends Node2D
 
-# Store tile size
+# Declare member const here.
 const TILE_SIZE = 32
 
 # Declare member variables here.

@@ -1,7 +1,7 @@
 extends Position2D
 
 
-# Declare member variables here.
+# Declare member variables here
 var _tile_list = []
 
 func _ready():

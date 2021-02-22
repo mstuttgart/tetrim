@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
+# Declare member const here.
 const ANGLE = PI/2
-const TILE_SIZE = 32
 
 func rotate_block():
 
