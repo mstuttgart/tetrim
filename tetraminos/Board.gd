@@ -63,14 +63,12 @@ func _process(delta):
 
 func _get_player_block():
 
-    var idx = rand_range(0, block_list.size() - 1)
-
     if player_block:
         remove_child(player_block)
         player_block.queue_free()
 
     # Instance player block
-    player_block = block_list[idx].instance()
+    player_block = block_list[randi() % block_list.size()].instance()
     player_block.position = $StartPosition.position
 
     # Add player to board tree
