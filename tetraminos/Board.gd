@@ -128,6 +128,7 @@ func _on_FallingTimer_timeout():
             var tile_body = tile_scene.instance()
 
             tile_body.position = tile.get_global_position()
+            tile_body.get_node("Sprite").modulate = tile.get_node("Sprite").modulate
             add_child(tile_body)
 
         # Generate a new block to player
