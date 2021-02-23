@@ -6,6 +6,7 @@ const TILE_SIZE = 32
 # Declare member variables here.
 var block_list = [
     preload("res://blocks/S.tscn"),
+    preload("res://blocks/L.tscn"),
 ]
 
 var tile_scene = preload("res://blocks/Tile.tscn")
