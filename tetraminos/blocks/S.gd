@@ -8,19 +8,19 @@ func rotate_block():
     if not _check_collision_on_rotate():
 
         # Rotate tiles shapes.Change (x, y) by (-y, x) to rotate
-        $Tile1_Shape.position = Vector2($Tile1_Shape.position.y * -1, $Tile1_Shape.position.x)
-        $Tile2_Shape.position = Vector2($Tile2_Shape.position.y * -1, $Tile2_Shape.position.x)
-        $Tile3_Shape.position = Vector2($Tile3_Shape.position.y * -1, $Tile3_Shape.position.x)
-        $Tile4_Shape.position = Vector2($Tile4_Shape.position.y * -1, $Tile4_Shape.position.x)
+        $Shape_01.position = Vector2($Shape_01.position.y * -1, $Shape_01.position.x)
+        $Shape_02.position = Vector2($Shape_02.position.y * -1, $Shape_02.position.x)
+        $Shape_03.position = Vector2($Shape_03.position.y * -1, $Shape_03.position.x)
+        $Shape_04.position = Vector2($Shape_04.position.y * -1, $Shape_04.position.x)
 
         # Rotete de RayCast2D
-        $Tile2_Shape/RayCast2D_1.position = Vector2($Tile2_Shape/RayCast2D_1.position.y * -1, $Tile2_Shape/RayCast2D_1.position.x)
-        $Tile3_Shape/RayCast2D_2.position = Vector2($Tile3_Shape/RayCast2D_2.position.y * -1, $Tile3_Shape/RayCast2D_2.position.x)
+        $Shape_02/RayCast2D.position = Vector2($Shape_02/RayCast2D.position.y * -1, $Shape_02/RayCast2D.position.x)
+        $Shape_03/RayCast2D.position = Vector2($Shape_03/RayCast2D.position.y * -1, $Shape_03/RayCast2D.position.x)
 
-        $Tile2_Shape/RayCast2D_1.cast_to = Vector2($Tile2_Shape/RayCast2D_1.cast_to.y * -1, $Tile2_Shape/RayCast2D_1.cast_to.x)
-        $Tile3_Shape/RayCast2D_2.cast_to = Vector2($Tile3_Shape/RayCast2D_2.cast_to.y * -1, $Tile3_Shape/RayCast2D_2.cast_to.x)
+        $Shape_02/RayCast2D.cast_to = Vector2($Shape_02/RayCast2D.cast_to.y * -1, $Shape_02/RayCast2D.cast_to.x)
+        $Shape_03/RayCast2D.cast_to = Vector2($Shape_03/RayCast2D.cast_to.y * -1, $Shape_03/RayCast2D.cast_to.x)
 
 func _check_collision_on_rotate():
     var transform2d = Transform2D(rotation + ANGLE, position)
-    return $Tile2_Shape/RayCast2D_1.is_colliding() or $Tile3_Shape/RayCast2D_2.is_colliding() or test_move(transform2d, Vector2(0, 0), false)
+    return $Shape_02/RayCast2D.is_colliding() or $Shape_03/RayCast2D.is_colliding() or test_move(transform2d, Vector2(0, 0), false)
 
