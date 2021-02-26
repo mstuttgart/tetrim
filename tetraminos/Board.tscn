@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://blocks/Tile.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Position.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Board.gd" type="Script" id=3]
 
@@ -130,13 +129,4 @@ position = Vector2( 0, 48 )
 
 [node name="Position_19" parent="PositionCursor" instance=ExtResource( 2 )]
 position = Vector2( 0, 16 )
-
-[node name="Tile" parent="." instance=ExtResource( 1 )]
-position = Vector2( 16, 624 )
-
-[node name="Tile2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 304, 624 )
-
-[node name="Tile3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 304, 560 )
 [connection signal="timeout" from="FallingTimer" to="." method="_on_FallingTimer_timeout"]
