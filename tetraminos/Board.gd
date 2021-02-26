@@ -7,6 +7,9 @@ const TILE_SIZE = 32
 var block_list = [
     preload("res://blocks/S.tscn"),
     preload("res://blocks/L.tscn"),
+    preload("res://blocks/J.tscn"),
+    preload("res://blocks/T.tscn"),
+    preload("res://blocks/Z.tscn"),
 ]
 
 var tile_scene = preload("res://blocks/Tile.tscn")
