@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="tetraminos"
+config/name="Tetraminos"
 run/main_scene="res://Board.tscn"
 config/icon="res://icon.png"
 
