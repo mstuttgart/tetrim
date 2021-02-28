@@ -10,6 +10,7 @@ var block_list = [
     preload("res://blocks/J.tscn"),
     preload("res://blocks/T.tscn"),
     preload("res://blocks/Z.tscn"),
+    preload("res://blocks/O.tscn"),
 ]
 
 var tile_scene = preload("res://blocks/Tile.tscn")
