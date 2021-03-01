@@ -61,13 +61,12 @@ func _process(delta):
         velocity.x += 1
 
     elif Input.is_action_just_pressed("ui_down"):
-        velocity.y += 1
-
+        velocity.y += 2
         score += 10
         _update_score()
 
     if velocity.length() > 0:
-        velocity = velocity.normalized() * TILE_SIZE
+        velocity = velocity * TILE_SIZE
 
     player_block.move_and_collide(velocity)
 
