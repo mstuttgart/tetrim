@@ -62,7 +62,7 @@ func _process(delta):
 
     elif Input.is_action_just_pressed("ui_down"):
         velocity.y += 2
-        score += 10
+        score += 2
         _update_score()
 
     if velocity.length() > 0:
