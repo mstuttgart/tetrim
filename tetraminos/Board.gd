@@ -141,3 +141,8 @@ func _on_FallingTimer_timeout():
 
         # Check complete lines and clean then
         _clear_line()
+
+
+func _on_Roof_body_entered(body):
+    print('Gameover')
+    $GameOverNode.visible = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Position.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Board.gd" type="Script" id=3]
@@ -7,9 +7,12 @@
 extents = Vector2( 160, 16 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 16, 320 )
+extents = Vector2( 160, 16 )
 
 [sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 16, 320 )
+
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 16, 320 )
 
 [node name="Board" type="Node2D"]
@@ -26,6 +29,17 @@ __meta__ = {
 [node name="StartPosition" type="Position2D" parent="."]
 position = Vector2( 176, -16 )
 
+[node name="Roof" type="Area2D" parent="."]
+position = Vector2( 160, -16 )
+collision_layer = 16
+collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Roof"]
+shape = SubResource( 1 )
+
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2( 160, 656 )
 collision_layer = 4
@@ -36,7 +50,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="WallLeft" type="StaticBody2D" parent="."]
 position = Vector2( -16, 320 )
@@ -48,7 +62,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="WallRight" type="StaticBody2D" parent="."]
 position = Vector2( 336, 320 )
@@ -60,7 +74,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="FallingTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -129,4 +143,25 @@ position = Vector2( 0, 48 )
 
 [node name="Position_19" parent="PositionCursor" instance=ExtResource( 2 )]
 position = Vector2( 0, 16 )
+
+[node name="GameOverNode" type="Node2D" parent="."]
+visible = false
+position = Vector2( 96, 256 )
+z_index = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="GameOverLabel" type="Label" parent="GameOverNode"]
+margin_right = 128.0
+margin_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="body_entered" from="Roof" to="." method="_on_Roof_body_entered"]
 [connection signal="timeout" from="FallingTimer" to="." method="_on_FallingTimer_timeout"]
