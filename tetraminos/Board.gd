@@ -25,6 +25,9 @@ var player_block
 # Vector to move down
 var velocity_down
 
+# Player score
+var score = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
     # Setups a time-based seed to generator.
@@ -59,6 +62,9 @@ func _process(delta):
 
     elif Input.is_action_just_pressed("ui_down"):
         velocity.y += 1
+
+        score += 10
+        _update_score()
 
     if velocity.length() > 0:
         velocity = velocity.normalized() * TILE_SIZE
@@ -111,6 +117,13 @@ func _clear_line():
 
             for tile in pos.get_tile_list():
                 tile.position += velocity_down
+
+    if completed_line_index_list.size():
+        score += 100 * pow(2, completed_line_index_list.size() - 1)
+        _update_score()
+
+func _update_score():
+    $ScoreLabel.set_text(str(score))
 
 
 func _on_FallingTimer_timeout():

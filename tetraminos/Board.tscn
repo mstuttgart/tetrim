@@ -163,5 +163,17 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ScoreLabel" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 56.0
+margin_bottom = 30.0
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="body_entered" from="Roof" to="." method="_on_Roof_body_entered"]
 [connection signal="timeout" from="FallingTimer" to="." method="_on_FallingTimer_timeout"]
