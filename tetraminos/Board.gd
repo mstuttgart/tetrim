@@ -129,9 +129,9 @@ func _on_FallingTimer_timeout():
 
     player_block.move_and_collide(velocity_down)
 
-    var transform2d = Transform2D(player_block.rotation, player_block.position)
+    var transform2d = Transform2D(player_block.rotation, player_block.position + position)
 
-    if player_block.test_move(transform2d, Vector2(0, TILE_SIZE), false) and stop_block != 2:
+    if player_block.test_move(transform2d, velocity_down, false) and stop_block != 2:
         stop_block += 1
 
     if stop_block == 2:
@@ -144,7 +144,7 @@ func _on_FallingTimer_timeout():
             # Create tile and insert it in scene tree
             var tile_body = tile_scene.instance()
 
-            tile_body.position = tile.get_global_position()
+            tile_body.position = tile.get_global_position() - position
             tile_body.get_node("Sprite").modulate = tile.get_node("Sprite").modulate
             add_child(tile_body)
 

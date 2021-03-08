@@ -16,13 +16,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Tetraminos"
-run/main_scene="res://Board.tscn"
+run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
 
 [display]
 
-window/size/width=320
-window/size/height=640
+window/size/width=640
+window/size/height=720
 window/handheld/orientation="portrait"
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
