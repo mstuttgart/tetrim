@@ -27,11 +27,16 @@ var velocity_down
 
 # Player score
 var score = 0
+var lines = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
     # Setups a time-based seed to generator.
     randomize()
+
+    # Reset score
+    score = 0
+    lines = 0
 
     # Instance vector
     velocity_down = Vector2(0, 1).normalized() * TILE_SIZE
@@ -119,6 +124,7 @@ func _clear_line():
 
     if completed_line_index_list.size():
         score += 100 * pow(2, completed_line_index_list.size() - 1)
+        lines += completed_line_index_list.size()
         _update_score()
 
 func _update_score():
