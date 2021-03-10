@@ -35,9 +35,9 @@ __meta__ = {
 
 [node name="ContainerNextBlock" type="VBoxContainer" parent="GUI"]
 margin_left = 432.0
-margin_top = 128.0
+margin_top = 114.0
 margin_right = 559.0
-margin_bottom = 272.0
+margin_bottom = 258.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -61,7 +61,7 @@ __meta__ = {
 
 [node name="ContainerScore" type="VBoxContainer" parent="GUI"]
 margin_left = 432.0
-margin_top = 305.0
+margin_top = 300.0
 margin_right = 561.0
 margin_bottom = 369.0
 __meta__ = {
@@ -78,7 +78,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Background" type="ColorRect" parent="GUI/ContainerScore"]
+[node name="ScoreBackground" type="ColorRect" parent="GUI/ContainerScore"]
 margin_top = 18.0
 margin_right = 129.0
 margin_bottom = 50.0
@@ -88,7 +88,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ScoreValue" type="Label" parent="GUI/ContainerScore/Background"]
+[node name="ScoreValue" type="Label" parent="GUI/ContainerScore/ScoreBackground"]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
@@ -103,11 +103,56 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ContainerLines" type="VBoxContainer" parent="GUI"]
+margin_left = 432.0
+margin_top = 366.0
+margin_right = 561.0
+margin_bottom = 435.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LinesLabel" type="Label" parent="GUI/ContainerLines"]
+margin_right = 129.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
+custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
+text = "LINES"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LinesBackground" type="ColorRect" parent="GUI/ContainerLines"]
+margin_top = 18.0
+margin_right = 129.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 32 )
+color = Color( 0.156863, 0.156863, 0.156863, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LinesCount" type="Label" parent="GUI/ContainerLines/LinesBackground"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -7.0
+margin_bottom = 7.0
+custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
+custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ButtonContainer" type="VBoxContainer" parent="GUI"]
 margin_left = 432.0
-margin_top = 416.0
+margin_top = 466.0
 margin_right = 561.0
-margin_bottom = 464.0
+margin_bottom = 518.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -118,10 +163,20 @@ margin_bottom = 24.0
 theme = ExtResource( 3 )
 text = "PAUSE"
 
-[node name="ButtonQuit" type="Button" parent="GUI/ButtonContainer"]
+[node name="Separator" type="ColorRect" parent="GUI/ButtonContainer"]
 margin_top = 28.0
 margin_right = 129.0
-margin_bottom = 52.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 100, 16 )
+color = Color( 0.113725, 0.12549, 0.129412, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonQuit" type="Button" parent="GUI/ButtonContainer"]
+margin_top = 48.0
+margin_right = 129.0
+margin_bottom = 72.0
 theme = ExtResource( 3 )
 text = "QUIT"
 
@@ -139,14 +194,25 @@ __meta__ = {
 
 [node name="StartPosition" type="Position2D" parent="Board"]
 position = Vector2( 176, -16 )
+z_index = -1
 
 [node name="Roof" type="Area2D" parent="Board"]
 position = Vector2( 160, -16 )
+z_index = 1
 collision_layer = 16
 collision_mask = 2
 __meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
+"_edit_group_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="Board/Roof"]
+margin_left = -160.0
+margin_top = -16.0
+margin_right = 160.0
+margin_bottom = 16.0
+color = Color( 0.113725, 0.12549, 0.129412, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Roof"]
