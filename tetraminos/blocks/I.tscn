@@ -19,7 +19,7 @@ position = Vector2( -16, -16 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Shape_01"]
-modulate = Color( 0.984314, 0.286275, 0.203922, 1 )
+modulate = Color( 0.921569, 0.858824, 0.698039, 1 )
 texture = ExtResource( 1 )
 
 [node name="Shape_02" type="CollisionShape2D" parent="."]
@@ -27,7 +27,7 @@ position = Vector2( 48, -16 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Shape_02"]
-modulate = Color( 0.984314, 0.286275, 0.203922, 1 )
+modulate = Color( 0.921569, 0.858824, 0.698039, 1 )
 texture = ExtResource( 1 )
 
 [node name="RayCast2D" type="RayCast2D" parent="Shape_02"]
@@ -40,7 +40,7 @@ position = Vector2( -48, -16 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Shape_03"]
-modulate = Color( 0.984314, 0.286275, 0.203922, 1 )
+modulate = Color( 0.921569, 0.858824, 0.698039, 1 )
 texture = ExtResource( 1 )
 
 [node name="RayCast2D" type="RayCast2D" parent="Shape_03"]
@@ -53,5 +53,5 @@ position = Vector2( 16, -16 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Shape_04"]
-modulate = Color( 0.984314, 0.286275, 0.203922, 1 )
+modulate = Color( 0.921569, 0.858824, 0.698039, 1 )
 texture = ExtResource( 1 )
