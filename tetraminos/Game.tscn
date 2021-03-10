@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Board.gd" type="Script" id=1]
 [ext_resource path="res://Position.tscn" type="PackedScene" id=2]
 [ext_resource path="res://theme.tres" type="Theme" id=3]
+[ext_resource path="res://GUI.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 160, 16 )
@@ -29,6 +30,7 @@ __meta__ = {
 [node name="GUI" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -354,5 +356,6 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="update_score" from="Board" to="GUI" method="_on_Board_update_score"]
 [connection signal="body_entered" from="Board/Roof" to="Board" method="_on_Roof_body_entered"]
 [connection signal="timeout" from="Board/FallingTimer" to="Board" method="_on_FallingTimer_timeout"]

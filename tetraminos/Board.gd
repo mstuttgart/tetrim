@@ -1,5 +1,7 @@
 extends Node2D
 
+signal update_score
+
 # Declare member const here.
 const TILE_SIZE = 32
 
@@ -37,6 +39,7 @@ func _ready():
     # Reset score
     score = 0
     lines = 0
+    emit_signal("update_score", score, lines)
 
     # Instance vector
     velocity_down = Vector2(0, 1).normalized() * TILE_SIZE
@@ -68,7 +71,7 @@ func _process(delta):
     elif Input.is_action_just_pressed("ui_down"):
         velocity.y += 2
         score += 2
-        _update_score()
+        emit_signal("update_score", score, lines)
 
     if velocity.length() > 0:
         velocity = velocity * TILE_SIZE
@@ -125,11 +128,9 @@ func _clear_line():
     if completed_line_index_list.size():
         score += 100 * pow(2, completed_line_index_list.size() - 1)
         lines += completed_line_index_list.size()
-        _update_score()
 
-func _update_score():
-    $ScoreLabel.set_text(str(score))
-
+        # Update score and line on GUI
+        emit_signal("update_score", score, lines)
 
 func _on_FallingTimer_timeout():
 
