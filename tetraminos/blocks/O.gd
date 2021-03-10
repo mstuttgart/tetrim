@@ -5,7 +5,8 @@ const ANGLE = PI/2
 
 func _ready():
     # Fiz block 'O' position, because the axis not in center of tile
-    position.x += 16
+#    position.x += 16
+    pass
 
 func rotate_block():
 
