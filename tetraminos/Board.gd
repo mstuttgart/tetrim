@@ -131,7 +131,7 @@ func _on_FallingTimer_timeout():
 
     var transform2d = Transform2D(player_block.rotation, player_block.position + position)
 
-    if player_block.test_move(transform2d, velocity_down, false) and stop_block != 2:
+    if player_block.test_move(transform2d, velocity_down * 0.5, false) and stop_block != 2:
         stop_block += 1
 
     if stop_block == 2:
