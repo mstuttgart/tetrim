@@ -1,6 +1,7 @@
 extends Node2D
 
 signal update_score
+signal update_next_block
 
 # Declare member const here.
 const TILE_SIZE = 32
@@ -23,6 +24,7 @@ var stop_block = 0
 
 # player block node
 var player_block
+var next_block
 
 # Vector to move down
 var velocity_down
@@ -86,11 +88,22 @@ func _get_player_block():
         player_block.queue_free()
 
     # Instance player block
-    player_block = block_list[randi() % block_list.size()].instance()
+    if next_block:
+        player_block = next_block
+    else:
+        player_block = get_next_block()
+
+    # Create next block and send it to show in GUI
+    next_block = get_next_block()
+    emit_signal("update_next_block", next_block)
+
     player_block.position = $StartPosition.position
 
     # Add player to board tree
     add_child(player_block)
+
+func get_next_block():
+    return block_list[randi() % block_list.size()].instance()
 
 func _clear_line():
 
