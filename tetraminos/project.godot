@@ -22,7 +22,7 @@ config/icon="res://icon.png"
 [display]
 
 window/size/width=640
-window/size/height=720
+window/size/height=700
 window/handheld/orientation="portrait"
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
