@@ -261,7 +261,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="ColorRect" type="ColorRect" parent="Board/Roof"]
+[node name="Background" type="ColorRect" parent="Board/Roof"]
 margin_left = -160.0
 margin_top = -18.0
 margin_right = 160.0
