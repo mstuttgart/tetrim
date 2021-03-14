@@ -5,6 +5,18 @@
 [ext_resource path="res://theme.tres" type="Theme" id=3]
 [ext_resource path="res://GUI.gd" type="Script" id=4]
 
+[sub_resource type="InputEventAction" id=5]
+action = "ui_select"
+
+[sub_resource type="ShortCut" id=6]
+shortcut = SubResource( 5 )
+
+[sub_resource type="InputEventAction" id=7]
+action = "ui_cancel"
+
+[sub_resource type="ShortCut" id=8]
+shortcut = SubResource( 7 )
+
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 160, 16 )
 
@@ -202,6 +214,7 @@ __meta__ = {
 margin_right = 129.0
 margin_bottom = 24.0
 theme = ExtResource( 3 )
+shortcut = SubResource( 6 )
 text = "PAUSE"
 
 [node name="Separator" type="ColorRect" parent="GUI/ButtonContainer"]
@@ -219,6 +232,7 @@ margin_top = 48.0
 margin_right = 129.0
 margin_bottom = 72.0
 theme = ExtResource( 3 )
+shortcut = SubResource( 8 )
 text = "QUIT"
 
 [node name="Board" type="Node2D" parent="."]
