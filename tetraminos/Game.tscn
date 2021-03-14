@@ -58,11 +58,23 @@ margin_bottom = 176.0
 rect_min_size = Vector2( 126, 158 )
 color = Color( 0.156863, 0.156863, 0.156863, 1 )
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="NextBlockPosition" type="Position2D" parent="GUI/ContainerNextBlock/Background"]
 position = Vector2( 64, 92 )
+
+[node name="BackgroundBorder" type="ColorRect" parent="GUI/ContainerNextBlock/Background"]
+show_behind_parent = true
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 162.0
+margin_bottom = 160.0
+color = Color( 0.921569, 0.858824, 0.698039, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ContainerScore" type="VBoxContainer" parent="GUI"]
 margin_left = 432.0
@@ -89,6 +101,18 @@ margin_right = 129.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 100, 32 )
 color = Color( 0.156863, 0.156863, 0.156863, 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundBorder" type="ColorRect" parent="GUI/ContainerScore/ScoreBackground"]
+show_behind_parent = true
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 131.0
+margin_bottom = 34.0
+color = Color( 0.921569, 0.858824, 0.698039, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -135,6 +159,18 @@ margin_bottom = 50.0
 rect_min_size = Vector2( 100, 32 )
 color = Color( 0.156863, 0.156863, 0.156863, 1 )
 __meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundBorder" type="ColorRect" parent="GUI/ContainerLines/LinesBackground"]
+show_behind_parent = true
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 131.0
+margin_bottom = 34.0
+color = Color( 0.921569, 0.858824, 0.698039, 1 )
+__meta__ = {
 "_edit_use_anchors_": false
 }
 
@@ -162,7 +198,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ButtonPause" type="Button" parent="GUI/ButtonContainer"]
+[node name="ButtonPauseResume" type="Button" parent="GUI/ButtonContainer"]
 margin_right = 129.0
 margin_bottom = 24.0
 theme = ExtResource( 3 )
@@ -188,8 +224,23 @@ text = "QUIT"
 [node name="Board" type="Node2D" parent="."]
 position = Vector2( 32, 32 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="ColorRect" type="ColorRect" parent="Board"]
+[node name="BackgroundBorder" type="ColorRect" parent="Board"]
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 322.0
+margin_bottom = 642.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color( 0.921569, 0.858824, 0.698039, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="Board"]
 margin_right = 320.0
 margin_bottom = 640.0
 color = Color( 0.156863, 0.156863, 0.156863, 1 )
@@ -212,12 +263,13 @@ __meta__ = {
 
 [node name="ColorRect" type="ColorRect" parent="Board/Roof"]
 margin_left = -160.0
-margin_top = -16.0
+margin_top = -18.0
 margin_right = 160.0
-margin_bottom = 16.0
+margin_bottom = 14.0
 color = Color( 0.113725, 0.12549, 0.129412, 1 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": false,
+"_editor_description_": "Hide blocks"
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Roof"]
@@ -346,19 +398,8 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="ScoreLabel" type="Label" parent="Board"]
-visible = false
-margin_left = 16.0
-margin_top = 16.0
-margin_right = 56.0
-margin_bottom = 30.0
-text = "0"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[connection signal="change_game_state" from="GUI" to="Board" method="_on_GUI_change_game_state"]
+[connection signal="pressed" from="GUI/ButtonContainer/ButtonPauseResume" to="GUI" method="_on_ButtonPauseResume_pressed"]
 [connection signal="update_next_block" from="Board" to="GUI" method="_on_Board_update_next_block"]
 [connection signal="update_score" from="Board" to="GUI" method="_on_Board_update_score"]
 [connection signal="body_entered" from="Board/Roof" to="Board" method="_on_Roof_body_entered"]

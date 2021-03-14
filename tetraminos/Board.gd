@@ -1,7 +1,14 @@
 extends Node2D
 
+# Create signals to update GUI
 signal update_score
 signal update_next_block
+
+# States of game
+enum States { STOP, PLAY, PAUSE }
+
+# Keeps track of the current state
+var _state = States.STOP
 
 # Declare member const here.
 const TILE_SIZE = 32
@@ -52,10 +59,16 @@ func _ready():
     # Load player block
     _get_player_block()
 
+    # Active state on PLAY
+    _state = States.PLAY
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # warning-ignore:unused_argument
 func _process(delta):
+
+    if _state != States.PLAY:
+        return
 
     var velocity = Vector2()
 
@@ -147,6 +160,9 @@ func _clear_line():
 
 func _on_FallingTimer_timeout():
 
+    if _state != States.PLAY:
+        return
+
     player_block.move_and_collide(velocity_down)
 
     var transform2d = Transform2D(player_block.rotation, player_block.position + position)
@@ -174,7 +190,16 @@ func _on_FallingTimer_timeout():
         # Check complete lines and clean then
         _clear_line()
 
-
 func _on_Roof_body_entered(body):
-    print('Gameover')
+    _state = States.STOP
     $GameOverNode.visible = true
+
+func _on_GUI_change_game_state():
+
+    if _state == States.PLAY:
+        _state = States.PAUSE
+        $FallingTimer.stop()
+
+    elif _state == States.PAUSE:
+        _state = States.PLAY
+        $FallingTimer.start()

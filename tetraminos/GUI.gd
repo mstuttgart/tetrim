@@ -1,5 +1,9 @@
 extends Control
 
+# Create signals to update GUI
+signal change_game_state
+
+# Receive the nex block
 var current_block
 
 func _on_Board_update_score(score, lines):
@@ -16,3 +20,15 @@ func _on_Board_update_next_block(next_block):
     current_block = next_block
     current_block.position = get_node("ContainerNextBlock/Background/NextBlockPosition").position
     get_node("ContainerNextBlock/Background").add_child(current_block)
+
+
+func _on_ButtonPauseResume_pressed():
+    # Change button label and change game state
+
+    if $ButtonContainer/ButtonPauseResume.text == 'PAUSE':
+        $ButtonContainer/ButtonPauseResume.text = 'CONTINUE'
+    else:
+        $ButtonContainer/ButtonPauseResume.text = 'PAUSE'
+
+    # Send signal to game to change state
+    emit_signal("change_game_state")
