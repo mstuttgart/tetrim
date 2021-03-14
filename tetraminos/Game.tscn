@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Board.gd" type="Script" id=1]
 [ext_resource path="res://Position.tscn" type="PackedScene" id=2]
@@ -400,6 +400,7 @@ __meta__ = {
 }
 [connection signal="change_game_state" from="GUI" to="Board" method="_on_GUI_change_game_state"]
 [connection signal="pressed" from="GUI/ButtonContainer/ButtonPauseResume" to="GUI" method="_on_ButtonPauseResume_pressed"]
+[connection signal="pressed" from="GUI/ButtonContainer/ButtonQuit" to="GUI" method="_on_ButtonQuit_pressed"]
 [connection signal="update_next_block" from="Board" to="GUI" method="_on_Board_update_next_block"]
 [connection signal="update_score" from="Board" to="GUI" method="_on_Board_update_score"]
 [connection signal="body_entered" from="Board/Roof" to="Board" method="_on_Roof_body_entered"]

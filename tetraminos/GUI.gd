@@ -32,3 +32,7 @@ func _on_ButtonPauseResume_pressed():
 
     # Send signal to game to change state
     emit_signal("change_game_state")
+
+
+func _on_ButtonQuit_pressed():
+    get_parent().get_tree().quit()
