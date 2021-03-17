@@ -16,7 +16,9 @@ _global_script_class_icons={
 [application]
 
 config/name="Tetraminos"
-run/main_scene="res://Game.tscn"
+config/description="Another Tetris Clone"
+run/main_scene="res://TitleScreen.tscn"
+boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
 config/icon="res://icon.png"
 
 [display]
