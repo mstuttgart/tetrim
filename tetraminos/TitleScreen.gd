@@ -1,6 +1,7 @@
 extends Control
 
 func _ready():
+    $FadeBackground.visible = true
     $FadeBackground/AnimationPlayer.play("FadeIn")
 
 func _on_Play_pressed():
