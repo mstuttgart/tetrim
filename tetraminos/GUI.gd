@@ -35,4 +35,5 @@ func _on_ButtonPauseResume_pressed():
 
 
 func _on_ButtonQuit_pressed():
-    get_parent().get_tree().quit()
+    get_tree().change_scene("res://TitleScreen.tscn")
+#    get_parent().get_tree().free()
