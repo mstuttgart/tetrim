@@ -6,53 +6,53 @@
 [ext_resource path="res://GUI.gd" type="Script" id=4]
 [ext_resource path="res://assets/ThaleahFat.ttf" type="DynamicFontData" id=5]
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=1]
 size = 25
 outline_color = Color( 0.658824, 0.6, 0.517647, 1 )
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=2]
 size = 25
 outline_color = Color( 0.658824, 0.6, 0.517647, 1 )
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=3]
 size = 25
 outline_color = Color( 0.658824, 0.6, 0.517647, 1 )
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=4]
 size = 25
 outline_color = Color( 0.658824, 0.6, 0.517647, 1 )
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=5]
 size = 25
 outline_color = Color( 0.658824, 0.6, 0.517647, 1 )
 font_data = ExtResource( 5 )
 
-[sub_resource type="InputEventAction" id=1]
+[sub_resource type="InputEventAction" id=6]
 action = "ui_select"
 
-[sub_resource type="ShortCut" id=2]
-shortcut = SubResource( 1 )
+[sub_resource type="ShortCut" id=7]
+shortcut = SubResource( 6 )
 
-[sub_resource type="InputEventAction" id=3]
+[sub_resource type="InputEventAction" id=8]
 action = "ui_cancel"
 
-[sub_resource type="ShortCut" id=4]
-shortcut = SubResource( 3 )
+[sub_resource type="ShortCut" id=9]
+shortcut = SubResource( 8 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 160, 16 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 160, 16 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 16, 320 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 16, 320 )
 
 [node name="Game" type="Node2D"]
@@ -85,7 +85,7 @@ __meta__ = {
 [node name="NextBlockLabel" type="Label" parent="GUI/ContainerNextBlock"]
 margin_right = 160.0
 margin_bottom = 24.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
 text = "NEXT"
 
@@ -126,7 +126,7 @@ __meta__ = {
 [node name="ScoreLabel" type="Label" parent="GUI/ContainerScore"]
 margin_right = 129.0
 margin_bottom = 24.0
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
 custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
 text = "SCORE"
@@ -162,7 +162,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 margin_top = -12.0
 margin_bottom = 12.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
 custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
 text = "000000000"
@@ -184,7 +184,7 @@ __meta__ = {
 [node name="LinesLabel" type="Label" parent="GUI/ContainerLines"]
 margin_right = 129.0
 margin_bottom = 24.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
 custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
 text = "LINES"
@@ -221,7 +221,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 margin_top = -12.0
 margin_bottom = 12.0
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
 custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
 text = "0"
@@ -244,7 +244,7 @@ __meta__ = {
 margin_right = 129.0
 margin_bottom = 34.0
 theme = ExtResource( 3 )
-shortcut = SubResource( 2 )
+shortcut = SubResource( 7 )
 text = "PAUSE"
 
 [node name="Separator" type="ColorRect" parent="GUI/ButtonContainer"]
@@ -262,7 +262,7 @@ margin_top = 58.0
 margin_right = 129.0
 margin_bottom = 92.0
 theme = ExtResource( 3 )
-shortcut = SubResource( 4 )
+shortcut = SubResource( 9 )
 text = "QUIT"
 
 [node name="Board" type="Node2D" parent="."]
@@ -317,7 +317,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Roof"]
-shape = SubResource( 5 )
+shape = SubResource( 10 )
 
 [node name="Floor" type="StaticBody2D" parent="Board"]
 position = Vector2( 160, 656 )
@@ -329,7 +329,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Floor"]
-shape = SubResource( 6 )
+shape = SubResource( 11 )
 
 [node name="WallLeft" type="StaticBody2D" parent="Board"]
 position = Vector2( -16, 320 )
@@ -341,7 +341,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Board/WallLeft"]
-shape = SubResource( 7 )
+shape = SubResource( 12 )
 
 [node name="WallRight" type="StaticBody2D" parent="Board"]
 position = Vector2( 336, 320 )
@@ -353,7 +353,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Board/WallRight"]
-shape = SubResource( 8 )
+shape = SubResource( 13 )
 
 [node name="FallingTimer" type="Timer" parent="Board"]
 wait_time = 0.5
