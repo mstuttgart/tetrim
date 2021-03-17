@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Board.gd" type="Script" id=1]
 [ext_resource path="res://Position.tscn" type="PackedScene" id=2]
@@ -54,6 +54,11 @@ extents = Vector2( 16, 320 )
 
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 16, 320 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 60
+outline_color = Color( 0.658824, 0.6, 0.517647, 1 )
+font_data = ExtResource( 5 )
 
 [node name="Game" type="Node2D"]
 
@@ -436,6 +441,9 @@ margin_right = 128.0
 margin_bottom = 62.0
 grow_horizontal = 2
 grow_vertical = 2
+custom_fonts/font = SubResource( 14 )
+custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
+custom_colors/font_color_shadow = Color( 0.658824, 0.6, 0.517647, 1 )
 text = "GAME OVER"
 align = 1
 valign = 1
