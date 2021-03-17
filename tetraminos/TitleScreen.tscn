@@ -1,19 +1,31 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/ThaleahFat.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://TitleScreen.gd" type="Script" id=2]
 
-[sub_resource type="DynamicFont" id=2]
-size = 120
+[sub_resource type="DynamicFont" id=1]
+size = 150
 outline_size = 3
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=5]
 size = 65
 outline_color = Color( 0.658824, 0.6, 0.517647, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="InputEventAction" id=6]
+action = "ui_select"
+
+[sub_resource type="ShortCut" id=7]
+shortcut = SubResource( 6 )
+
+[sub_resource type="InputEventAction" id=8]
+action = "ui_cancel"
+
+[sub_resource type="ShortCut" id=9]
+shortcut = SubResource( 8 )
+
+[sub_resource type="Animation" id=3]
 resource_name = "FadeIn"
 length = 0.5
 tracks/0/type = "value"
@@ -29,7 +41,7 @@ tracks/0/keys = {
 "values": [ Color( 0.113725, 0.12549, 0.129412, 1 ), Color( 0.113725, 0.12549, 0.129412, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "FadeOut"
 length = 0.5
 tracks/0/type = "value"
@@ -79,7 +91,7 @@ __meta__ = {
 
 [node name="TitleContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_right = 640.0
-margin_bottom = 110.0
+margin_bottom = 151.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -90,10 +102,11 @@ __meta__ = {
 }
 
 [node name="T" type="Label" parent="VBoxContainer/TitleContainer"]
-margin_left = 155.0
-margin_right = 208.0
-margin_bottom = 110.0
-custom_fonts/font = SubResource( 2 )
+margin_left = 117.0
+margin_top = 6.0
+margin_right = 183.0
+margin_bottom = 144.0
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.984314, 0.286275, 0.203922, 1 )
 custom_colors/font_outline_modulate = Color( 0.8, 0.141176, 0.113725, 1 )
 text = "T"
@@ -104,10 +117,11 @@ __meta__ = {
 }
 
 [node name="E" type="Label" parent="VBoxContainer/TitleContainer"]
-margin_left = 212.0
-margin_right = 272.0
-margin_bottom = 110.0
-custom_fonts/font = SubResource( 2 )
+margin_left = 187.0
+margin_top = 6.0
+margin_right = 262.0
+margin_bottom = 144.0
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.721569, 0.733333, 0.14902, 1 )
 custom_colors/font_outline_modulate = Color( 0.596078, 0.592157, 0.101961, 1 )
 text = "E"
@@ -118,10 +132,11 @@ __meta__ = {
 }
 
 [node name="T2" type="Label" parent="VBoxContainer/TitleContainer"]
-margin_left = 276.0
-margin_right = 329.0
-margin_bottom = 110.0
-custom_fonts/font = SubResource( 2 )
+margin_left = 266.0
+margin_top = 6.0
+margin_right = 332.0
+margin_bottom = 144.0
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.980392, 0.741176, 0.184314, 1 )
 custom_colors/font_outline_modulate = Color( 0.843137, 0.6, 0.129412, 1 )
 text = "T"
@@ -132,10 +147,11 @@ __meta__ = {
 }
 
 [node name="R" type="Label" parent="VBoxContainer/TitleContainer"]
-margin_left = 333.0
-margin_right = 393.0
-margin_bottom = 110.0
-custom_fonts/font = SubResource( 2 )
+margin_left = 336.0
+margin_top = 6.0
+margin_right = 411.0
+margin_bottom = 144.0
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.513726, 0.647059, 0.596078, 1 )
 custom_colors/font_outline_modulate = Color( 0.270588, 0.521569, 0.533333, 1 )
 text = "R"
@@ -146,10 +162,11 @@ __meta__ = {
 }
 
 [node name="I" type="Label" parent="VBoxContainer/TitleContainer"]
-margin_left = 397.0
-margin_right = 420.0
-margin_bottom = 110.0
-custom_fonts/font = SubResource( 2 )
+margin_left = 415.0
+margin_top = 6.0
+margin_right = 443.0
+margin_bottom = 144.0
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.827451, 0.52549, 0.607843, 1 )
 custom_colors/font_outline_modulate = Color( 0.694118, 0.384314, 0.52549, 1 )
 text = "I"
@@ -160,10 +177,11 @@ __meta__ = {
 }
 
 [node name="S" type="Label" parent="VBoxContainer/TitleContainer"]
-margin_left = 424.0
-margin_right = 484.0
-margin_bottom = 110.0
-custom_fonts/font = SubResource( 2 )
+margin_left = 447.0
+margin_top = 6.0
+margin_right = 522.0
+margin_bottom = 144.0
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.556863, 0.752941, 0.462745, 1 )
 custom_colors/font_outline_modulate = Color( 0.407843, 0.615686, 0.415686, 1 )
 text = "S"
@@ -174,9 +192,9 @@ __meta__ = {
 }
 
 [node name="MenuContainer" type="VBoxContainer" parent="VBoxContainer"]
-margin_top = 114.0
+margin_top = 155.0
 margin_right = 640.0
-margin_bottom = 181.0
+margin_bottom = 307.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
@@ -185,17 +203,33 @@ __meta__ = {
 }
 
 [node name="Play" type="Button" parent="VBoxContainer/MenuContainer"]
+margin_top = 7.0
 margin_right = 640.0
-margin_bottom = 67.0
-custom_fonts/font = SubResource( 3 )
+margin_bottom = 74.0
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color_disabled = Color( 0.921569, 0.858824, 0.698039, 1 )
 custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
 custom_colors/font_color_hover = Color( 0.921569, 0.858824, 0.698039, 1 )
 custom_colors/font_color_pressed = Color( 0.921569, 0.858824, 0.698039, 1 )
+shortcut = SubResource( 7 )
 text = "PLAY"
 flat = true
 
+[node name="Quit" type="Button" parent="VBoxContainer/MenuContainer"]
+margin_top = 78.0
+margin_right = 640.0
+margin_bottom = 145.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color_disabled = Color( 0.921569, 0.858824, 0.698039, 1 )
+custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
+custom_colors/font_color_hover = Color( 0.921569, 0.858824, 0.698039, 1 )
+custom_colors/font_color_pressed = Color( 0.921569, 0.858824, 0.698039, 1 )
+shortcut = SubResource( 9 )
+text = "QUIT"
+flat = true
+
 [node name="FadeBackground" type="ColorRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.113725, 0.12549, 0.129412, 1 )
@@ -204,7 +238,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="FadeBackground"]
-anims/FadeIn = SubResource( 4 )
-anims/FadeOut = SubResource( 5 )
+anims/FadeIn = SubResource( 3 )
+anims/FadeOut = SubResource( 4 )
 [connection signal="pressed" from="VBoxContainer/MenuContainer/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="VBoxContainer/MenuContainer/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="animation_finished" from="FadeBackground/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
