@@ -1,32 +1,58 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Board.gd" type="Script" id=1]
 [ext_resource path="res://Position.tscn" type="PackedScene" id=2]
 [ext_resource path="res://theme.tres" type="Theme" id=3]
 [ext_resource path="res://GUI.gd" type="Script" id=4]
+[ext_resource path="res://assets/ThaleahFat.ttf" type="DynamicFontData" id=5]
 
-[sub_resource type="InputEventAction" id=5]
+[sub_resource type="DynamicFont" id=9]
+size = 25
+outline_color = Color( 0.658824, 0.6, 0.517647, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 25
+outline_color = Color( 0.658824, 0.6, 0.517647, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 25
+outline_color = Color( 0.658824, 0.6, 0.517647, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 25
+outline_color = Color( 0.658824, 0.6, 0.517647, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 25
+outline_color = Color( 0.658824, 0.6, 0.517647, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="InputEventAction" id=1]
 action = "ui_select"
 
-[sub_resource type="ShortCut" id=6]
-shortcut = SubResource( 5 )
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 1 )
 
-[sub_resource type="InputEventAction" id=7]
+[sub_resource type="InputEventAction" id=3]
 action = "ui_cancel"
 
-[sub_resource type="ShortCut" id=8]
-shortcut = SubResource( 7 )
+[sub_resource type="ShortCut" id=4]
+shortcut = SubResource( 3 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 160, 16 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 160, 16 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 16, 320 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 16, 320 )
 
 [node name="Game" type="Node2D"]
@@ -58,15 +84,15 @@ __meta__ = {
 
 [node name="NextBlockLabel" type="Label" parent="GUI/ContainerNextBlock"]
 margin_right = 160.0
-margin_bottom = 14.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
-custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
 text = "NEXT"
 
 [node name="Background" type="ColorRect" parent="GUI/ContainerNextBlock"]
-margin_top = 18.0
+margin_top = 28.0
 margin_right = 160.0
-margin_bottom = 176.0
+margin_bottom = 186.0
 rect_min_size = Vector2( 126, 158 )
 color = Color( 0.156863, 0.156863, 0.156863, 1 )
 __meta__ = {
@@ -90,16 +116,17 @@ __meta__ = {
 
 [node name="ContainerScore" type="VBoxContainer" parent="GUI"]
 margin_left = 432.0
-margin_top = 300.0
+margin_top = 323.0
 margin_right = 561.0
-margin_bottom = 369.0
+margin_bottom = 392.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ScoreLabel" type="Label" parent="GUI/ContainerScore"]
 margin_right = 129.0
-margin_bottom = 14.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
 custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
 text = "SCORE"
@@ -108,9 +135,9 @@ __meta__ = {
 }
 
 [node name="ScoreBackground" type="ColorRect" parent="GUI/ContainerScore"]
-margin_top = 18.0
+margin_top = 28.0
 margin_right = 129.0
-margin_bottom = 50.0
+margin_bottom = 60.0
 rect_min_size = Vector2( 100, 32 )
 color = Color( 0.156863, 0.156863, 0.156863, 1 )
 __meta__ = {
@@ -133,8 +160,9 @@ __meta__ = {
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = -7.0
-margin_bottom = 7.0
+margin_top = -12.0
+margin_bottom = 12.0
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
 custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
 text = "000000000"
@@ -146,16 +174,17 @@ __meta__ = {
 
 [node name="ContainerLines" type="VBoxContainer" parent="GUI"]
 margin_left = 432.0
-margin_top = 366.0
+margin_top = 402.0
 margin_right = 561.0
-margin_bottom = 435.0
+margin_bottom = 471.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LinesLabel" type="Label" parent="GUI/ContainerLines"]
 margin_right = 129.0
-margin_bottom = 14.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
 custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
 text = "LINES"
@@ -165,9 +194,9 @@ __meta__ = {
 }
 
 [node name="LinesBackground" type="ColorRect" parent="GUI/ContainerLines"]
-margin_top = 18.0
+margin_top = 28.0
 margin_right = 129.0
-margin_bottom = 50.0
+margin_bottom = 60.0
 rect_min_size = Vector2( 100, 32 )
 color = Color( 0.156863, 0.156863, 0.156863, 1 )
 __meta__ = {
@@ -190,8 +219,9 @@ __meta__ = {
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = -7.0
-margin_bottom = 7.0
+margin_top = -12.0
+margin_bottom = 12.0
+custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
 custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
 text = "0"
@@ -203,24 +233,24 @@ __meta__ = {
 
 [node name="ButtonContainer" type="VBoxContainer" parent="GUI"]
 margin_left = 432.0
-margin_top = 466.0
+margin_top = 514.0
 margin_right = 561.0
-margin_bottom = 518.0
+margin_bottom = 586.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ButtonPauseResume" type="Button" parent="GUI/ButtonContainer"]
 margin_right = 129.0
-margin_bottom = 24.0
+margin_bottom = 34.0
 theme = ExtResource( 3 )
-shortcut = SubResource( 6 )
+shortcut = SubResource( 2 )
 text = "PAUSE"
 
 [node name="Separator" type="ColorRect" parent="GUI/ButtonContainer"]
-margin_top = 28.0
+margin_top = 38.0
 margin_right = 129.0
-margin_bottom = 44.0
+margin_bottom = 54.0
 rect_min_size = Vector2( 100, 16 )
 color = Color( 0.113725, 0.12549, 0.129412, 1 )
 __meta__ = {
@@ -228,11 +258,11 @@ __meta__ = {
 }
 
 [node name="ButtonQuit" type="Button" parent="GUI/ButtonContainer"]
-margin_top = 48.0
+margin_top = 58.0
 margin_right = 129.0
-margin_bottom = 72.0
+margin_bottom = 92.0
 theme = ExtResource( 3 )
-shortcut = SubResource( 8 )
+shortcut = SubResource( 4 )
 text = "QUIT"
 
 [node name="Board" type="Node2D" parent="."]
@@ -287,7 +317,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Roof"]
-shape = SubResource( 1 )
+shape = SubResource( 5 )
 
 [node name="Floor" type="StaticBody2D" parent="Board"]
 position = Vector2( 160, 656 )
@@ -299,7 +329,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Floor"]
-shape = SubResource( 2 )
+shape = SubResource( 6 )
 
 [node name="WallLeft" type="StaticBody2D" parent="Board"]
 position = Vector2( -16, 320 )
@@ -311,7 +341,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Board/WallLeft"]
-shape = SubResource( 3 )
+shape = SubResource( 7 )
 
 [node name="WallRight" type="StaticBody2D" parent="Board"]
 position = Vector2( 336, 320 )
@@ -323,7 +353,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Board/WallRight"]
-shape = SubResource( 4 )
+shape = SubResource( 8 )
 
 [node name="FallingTimer" type="Timer" parent="Board"]
 wait_time = 0.5
