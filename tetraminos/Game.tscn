@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Board.gd" type="Script" id=1]
 [ext_resource path="res://Position.tscn" type="PackedScene" id=2]
@@ -6,56 +6,50 @@
 [ext_resource path="res://GUI.gd" type="Script" id=4]
 [ext_resource path="res://assets/ThaleahFat.ttf" type="DynamicFontData" id=5]
 
-[sub_resource type="DynamicFont" id=1]
-size = 25
-outline_color = Color( 0.658824, 0.6, 0.517647, 1 )
-font_data = ExtResource( 5 )
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 160, 16 )
 
-[sub_resource type="DynamicFont" id=2]
-size = 25
-outline_color = Color( 0.658824, 0.6, 0.517647, 1 )
-font_data = ExtResource( 5 )
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 160, 16 )
 
-[sub_resource type="DynamicFont" id=3]
-size = 25
-outline_color = Color( 0.658824, 0.6, 0.517647, 1 )
-font_data = ExtResource( 5 )
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 16, 320 )
 
-[sub_resource type="DynamicFont" id=4]
-size = 25
-outline_color = Color( 0.658824, 0.6, 0.517647, 1 )
-font_data = ExtResource( 5 )
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 16, 320 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 25
 outline_color = Color( 0.658824, 0.6, 0.517647, 1 )
 font_data = ExtResource( 5 )
 
-[sub_resource type="InputEventAction" id=6]
-action = "ui_select"
+[sub_resource type="DynamicFont" id=6]
+size = 25
+outline_color = Color( 0.658824, 0.6, 0.517647, 1 )
+font_data = ExtResource( 5 )
 
-[sub_resource type="ShortCut" id=7]
-shortcut = SubResource( 6 )
+[sub_resource type="DynamicFont" id=7]
+size = 25
+outline_color = Color( 0.658824, 0.6, 0.517647, 1 )
+font_data = ExtResource( 5 )
 
-[sub_resource type="InputEventAction" id=8]
+[sub_resource type="DynamicFont" id=8]
+size = 25
+outline_color = Color( 0.658824, 0.6, 0.517647, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 25
+outline_color = Color( 0.658824, 0.6, 0.517647, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="InputEventAction" id=10]
 action = "ui_cancel"
 
-[sub_resource type="ShortCut" id=9]
-shortcut = SubResource( 8 )
+[sub_resource type="ShortCut" id=11]
+shortcut = SubResource( 10 )
 
-[sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 160, 16 )
-
-[sub_resource type="RectangleShape2D" id=11]
-extents = Vector2( 160, 16 )
-
-[sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 16, 320 )
-
-[sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 16, 320 )
-
-[sub_resource type="DynamicFont" id=14]
+[sub_resource type="DynamicFont" id=12]
 size = 60
 outline_color = Color( 0.658824, 0.6, 0.517647, 1 )
 font_data = ExtResource( 5 )
@@ -69,206 +63,6 @@ color = Color( 0.113725, 0.12549, 0.129412, 1 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
-
-[node name="GUI" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ContainerNextBlock" type="VBoxContainer" parent="GUI"]
-margin_left = 432.0
-margin_top = 114.0
-margin_right = 592.0
-margin_bottom = 272.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NextBlockLabel" type="Label" parent="GUI/ContainerNextBlock"]
-margin_right = 160.0
-margin_bottom = 24.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
-text = "NEXT"
-
-[node name="Background" type="ColorRect" parent="GUI/ContainerNextBlock"]
-margin_top = 28.0
-margin_right = 160.0
-margin_bottom = 186.0
-rect_min_size = Vector2( 126, 158 )
-color = Color( 0.156863, 0.156863, 0.156863, 1 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="NextBlockPosition" type="Position2D" parent="GUI/ContainerNextBlock/Background"]
-position = Vector2( 64, 92 )
-
-[node name="BackgroundBorder" type="ColorRect" parent="GUI/ContainerNextBlock/Background"]
-show_behind_parent = true
-margin_left = -2.0
-margin_top = -2.0
-margin_right = 162.0
-margin_bottom = 160.0
-color = Color( 0.921569, 0.858824, 0.698039, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ContainerScore" type="VBoxContainer" parent="GUI"]
-margin_left = 432.0
-margin_top = 323.0
-margin_right = 561.0
-margin_bottom = 392.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ScoreLabel" type="Label" parent="GUI/ContainerScore"]
-margin_right = 129.0
-margin_bottom = 24.0
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
-custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
-text = "SCORE"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ScoreBackground" type="ColorRect" parent="GUI/ContainerScore"]
-margin_top = 28.0
-margin_right = 129.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 100, 32 )
-color = Color( 0.156863, 0.156863, 0.156863, 1 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="BackgroundBorder" type="ColorRect" parent="GUI/ContainerScore/ScoreBackground"]
-show_behind_parent = true
-margin_left = -2.0
-margin_top = -2.0
-margin_right = 131.0
-margin_bottom = 34.0
-color = Color( 0.921569, 0.858824, 0.698039, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ScoreValue" type="Label" parent="GUI/ContainerScore/ScoreBackground"]
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_top = -12.0
-margin_bottom = 12.0
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
-custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
-text = "000000000"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ContainerLines" type="VBoxContainer" parent="GUI"]
-margin_left = 432.0
-margin_top = 402.0
-margin_right = 561.0
-margin_bottom = 471.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="LinesLabel" type="Label" parent="GUI/ContainerLines"]
-margin_right = 129.0
-margin_bottom = 24.0
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
-custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
-text = "LINES"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="LinesBackground" type="ColorRect" parent="GUI/ContainerLines"]
-margin_top = 28.0
-margin_right = 129.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 100, 32 )
-color = Color( 0.156863, 0.156863, 0.156863, 1 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="BackgroundBorder" type="ColorRect" parent="GUI/ContainerLines/LinesBackground"]
-show_behind_parent = true
-margin_left = -2.0
-margin_top = -2.0
-margin_right = 131.0
-margin_bottom = 34.0
-color = Color( 0.921569, 0.858824, 0.698039, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="LinesCount" type="Label" parent="GUI/ContainerLines/LinesBackground"]
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_top = -12.0
-margin_bottom = 12.0
-custom_fonts/font = SubResource( 5 )
-custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
-custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
-text = "0"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ButtonContainer" type="VBoxContainer" parent="GUI"]
-margin_left = 432.0
-margin_top = 514.0
-margin_right = 561.0
-margin_bottom = 586.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ButtonPauseResume" type="Button" parent="GUI/ButtonContainer"]
-margin_right = 129.0
-margin_bottom = 34.0
-theme = ExtResource( 3 )
-shortcut = SubResource( 7 )
-text = "PAUSE"
-
-[node name="Separator" type="ColorRect" parent="GUI/ButtonContainer"]
-margin_top = 38.0
-margin_right = 129.0
-margin_bottom = 54.0
-rect_min_size = Vector2( 100, 16 )
-color = Color( 0.113725, 0.12549, 0.129412, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ButtonQuit" type="Button" parent="GUI/ButtonContainer"]
-margin_top = 58.0
-margin_right = 129.0
-margin_bottom = 92.0
-theme = ExtResource( 3 )
-shortcut = SubResource( 9 )
-text = "QUIT"
 
 [node name="Board" type="Node2D" parent="."]
 position = Vector2( 32, 32 )
@@ -322,7 +116,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Roof"]
-shape = SubResource( 10 )
+shape = SubResource( 1 )
 
 [node name="Floor" type="StaticBody2D" parent="Board"]
 position = Vector2( 160, 656 )
@@ -334,7 +128,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Floor"]
-shape = SubResource( 11 )
+shape = SubResource( 2 )
 
 [node name="WallLeft" type="StaticBody2D" parent="Board"]
 position = Vector2( -16, 320 )
@@ -346,7 +140,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Board/WallLeft"]
-shape = SubResource( 12 )
+shape = SubResource( 3 )
 
 [node name="WallRight" type="StaticBody2D" parent="Board"]
 position = Vector2( 336, 320 )
@@ -358,7 +152,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Board/WallRight"]
-shape = SubResource( 13 )
+shape = SubResource( 4 )
 
 [node name="FallingTimer" type="Timer" parent="Board"]
 wait_time = 0.5
@@ -428,20 +222,223 @@ position = Vector2( 0, 48 )
 [node name="Position_19" parent="Board/PositionCursor" instance=ExtResource( 2 )]
 position = Vector2( 0, 16 )
 
-[node name="GameOverNode" type="Node2D" parent="Board"]
-visible = false
-position = Vector2( 96, 256 )
-z_index = 1
+[node name="GUI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
 __meta__ = {
-"_edit_group_": true
+"_edit_use_anchors_": false
 }
 
-[node name="GameOverLabel" type="Label" parent="Board/GameOverNode"]
-margin_right = 128.0
-margin_bottom = 62.0
+[node name="ContainerNextBlock" type="VBoxContainer" parent="GUI"]
+margin_left = 432.0
+margin_top = 114.0
+margin_right = 592.0
+margin_bottom = 272.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextBlockLabel" type="Label" parent="GUI/ContainerNextBlock"]
+margin_right = 160.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
+text = "NEXT"
+
+[node name="Background" type="ColorRect" parent="GUI/ContainerNextBlock"]
+margin_top = 28.0
+margin_right = 160.0
+margin_bottom = 186.0
+rect_min_size = Vector2( 126, 158 )
+color = Color( 0.156863, 0.156863, 0.156863, 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="NextBlockPosition" type="Position2D" parent="GUI/ContainerNextBlock/Background"]
+position = Vector2( 64, 92 )
+
+[node name="BackgroundBorder" type="ColorRect" parent="GUI/ContainerNextBlock/Background"]
+show_behind_parent = true
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 162.0
+margin_bottom = 160.0
+color = Color( 0.921569, 0.858824, 0.698039, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContainerScore" type="VBoxContainer" parent="GUI"]
+margin_left = 432.0
+margin_top = 323.0
+margin_right = 561.0
+margin_bottom = 392.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreLabel" type="Label" parent="GUI/ContainerScore"]
+margin_right = 129.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
+custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
+text = "SCORE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreBackground" type="ColorRect" parent="GUI/ContainerScore"]
+margin_top = 28.0
+margin_right = 129.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 100, 32 )
+color = Color( 0.156863, 0.156863, 0.156863, 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundBorder" type="ColorRect" parent="GUI/ContainerScore/ScoreBackground"]
+show_behind_parent = true
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 131.0
+margin_bottom = 34.0
+color = Color( 0.921569, 0.858824, 0.698039, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreValue" type="Label" parent="GUI/ContainerScore/ScoreBackground"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -12.0
+margin_bottom = 12.0
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
+custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
+text = "000000000"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContainerLines" type="VBoxContainer" parent="GUI"]
+margin_left = 432.0
+margin_top = 402.0
+margin_right = 561.0
+margin_bottom = 471.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LinesLabel" type="Label" parent="GUI/ContainerLines"]
+margin_right = 129.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
+custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
+text = "LINES"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LinesBackground" type="ColorRect" parent="GUI/ContainerLines"]
+margin_top = 28.0
+margin_right = 129.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 100, 32 )
+color = Color( 0.156863, 0.156863, 0.156863, 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundBorder" type="ColorRect" parent="GUI/ContainerLines/LinesBackground"]
+show_behind_parent = true
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 131.0
+margin_bottom = 34.0
+color = Color( 0.921569, 0.858824, 0.698039, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LinesCount" type="Label" parent="GUI/ContainerLines/LinesBackground"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -12.0
+margin_bottom = 12.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
+custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonContainer" type="VBoxContainer" parent="GUI"]
+margin_left = 432.0
+margin_top = 514.0
+margin_right = 561.0
+margin_bottom = 586.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonPauseResume" type="Button" parent="GUI/ButtonContainer"]
+margin_right = 129.0
+margin_bottom = 34.0
+theme = ExtResource( 3 )
+text = "PAUSE"
+
+[node name="Separator" type="ColorRect" parent="GUI/ButtonContainer"]
+margin_top = 38.0
+margin_right = 129.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 100, 16 )
+color = Color( 0.113725, 0.12549, 0.129412, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonQuit" type="Button" parent="GUI/ButtonContainer"]
+margin_top = 58.0
+margin_right = 129.0
+margin_bottom = 92.0
+theme = ExtResource( 3 )
+shortcut = SubResource( 11 )
+text = "QUIT"
+
+[node name="CenterContainer" type="CenterContainer" parent="GUI"]
+anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 354.0
+margin_bottom = 674.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOverLabel" type="Label" parent="GUI/CenterContainer"]
+margin_left = 31.0
+margin_top = 293.0
+margin_right = 290.0
+margin_bottom = 348.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
 custom_colors/font_color_shadow = Color( 0.658824, 0.6, 0.517647, 1 )
 text = "GAME OVER"
@@ -450,10 +447,11 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="change_game_state" from="GUI" to="Board" method="_on_GUI_change_game_state"]
-[connection signal="pressed" from="GUI/ButtonContainer/ButtonPauseResume" to="GUI" method="_on_ButtonPauseResume_pressed"]
-[connection signal="pressed" from="GUI/ButtonContainer/ButtonQuit" to="GUI" method="_on_ButtonQuit_pressed"]
+[connection signal="gameover" from="Board" to="GUI" method="_on_Board_gameover"]
 [connection signal="update_next_block" from="Board" to="GUI" method="_on_Board_update_next_block"]
 [connection signal="update_score" from="Board" to="GUI" method="_on_Board_update_score"]
 [connection signal="body_entered" from="Board/Roof" to="Board" method="_on_Roof_body_entered"]
 [connection signal="timeout" from="Board/FallingTimer" to="Board" method="_on_FallingTimer_timeout"]
+[connection signal="change_game_state" from="GUI" to="Board" method="_on_GUI_change_game_state"]
+[connection signal="pressed" from="GUI/ButtonContainer/ButtonPauseResume" to="GUI" method="_on_ButtonPauseResume_pressed"]
+[connection signal="pressed" from="GUI/ButtonContainer/ButtonQuit" to="GUI" method="_on_ButtonQuit_pressed"]

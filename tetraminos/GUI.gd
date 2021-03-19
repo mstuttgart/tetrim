@@ -6,6 +6,9 @@ signal change_game_state
 # Receive the nex block
 var current_block
 
+func _ready():
+    get_node("CenterContainer/GameOverLabel").visible = false
+
 func _on_Board_update_score(score, lines):
     # Update score and line numbers
     get_node("ContainerScore/ScoreBackground/ScoreValue").text = str(score)
@@ -36,3 +39,7 @@ func _on_ButtonPauseResume_pressed():
 
 func _on_ButtonQuit_pressed():
     get_tree().change_scene("res://TitleScreen.tscn")
+
+
+func _on_Board_gameover():
+    get_node("CenterContainer/GameOverLabel").visible = true

@@ -3,6 +3,7 @@ extends Node2D
 # Create signals to update GUI
 signal update_score
 signal update_next_block
+signal gameover
 
 # States of game
 enum States { STOP, PLAY, PAUSE }
@@ -192,7 +193,7 @@ func _on_FallingTimer_timeout():
 
 func _on_Roof_body_entered(body):
     _state = States.STOP
-    $GameOverNode.visible = true
+    emit_signal("gameover")
 
 func _on_GUI_change_game_state():
 
