@@ -45,11 +45,13 @@ var lines = 0
 func _ready():
     # Setups a time-based seed to generator.
     randomize()
+    _game_start()
+
+
+func _game_start():
 
     # Reset score
-    score = 0
-    lines = 0
-    emit_signal("update_score", score, lines)
+    _update_score(0, 0)
 
     # Instance vector
     velocity_down = Vector2(0, 1).normalized() * TILE_SIZE
@@ -87,7 +89,7 @@ func _process(delta):
     elif Input.is_action_just_pressed("ui_down"):
         velocity.y += 2
         score += 2
-        emit_signal("update_score", score, lines)
+        _update_score(score, lines)
 
     if velocity.length() > 0:
         velocity = velocity * TILE_SIZE
@@ -139,7 +141,6 @@ func _clear_line():
 
             # Delete shapes in list
             pos.destroy_tiles()
-
             completed_line_index_list.append(index)
 
         index += 1
@@ -155,9 +156,12 @@ func _clear_line():
     if completed_line_index_list.size():
         score += 100 * pow(2, completed_line_index_list.size() - 1)
         lines += completed_line_index_list.size()
+        _update_score(score, lines)
 
-        # Update score and line on GUI
-        emit_signal("update_score", score, lines)
+
+func _update_score(score, lines):
+    # Update score and line on GUI
+    emit_signal("update_score", score, lines)
 
 func _on_FallingTimer_timeout():
 
@@ -204,3 +208,18 @@ func _on_GUI_change_game_state():
     elif _state == States.PAUSE:
         _state = States.PLAY
         $FallingTimer.start()
+
+
+func _on_GUI_restart_game():
+
+    for pos in $PositionCursor.get_children():
+        pos.clear_tile_list()
+
+    get_tree().call_group("StuckBlocks", "queue_free")
+
+    if player_block:
+        remove_child(player_block)
+        player_block.queue_free()
+
+    _game_start()
+

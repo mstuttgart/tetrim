@@ -2,27 +2,28 @@ extends Control
 
 # Create signals to update GUI
 signal change_game_state
+signal restart_game
 
 # Receive the nex block
 var current_block
 
 func _ready():
-    get_node("CenterContainer/GameOverLabel").visible = false
+    $CenterContainer/GameOverLabel.visible = false
 
 func _on_Board_update_score(score, lines):
     # Update score and line numbers
-    get_node("ContainerScore/ScoreBackground/ScoreValue").text = str(score)
-    get_node("ContainerLines/LinesBackground/LinesCount").text = str(lines)
+    $ContainerScore/ScoreBackground/ScoreValue.text = str(score)
+    $ContainerLines/LinesBackground/LinesCount.text = str(lines)
 
 
 func _on_Board_update_next_block(next_block):
 
     if current_block:
-        get_node("ContainerNextBlock/Background").remove_child(current_block)
+        $ContainerNextBlock/Background.remove_child(current_block)
 
     current_block = next_block
-    current_block.position = get_node("ContainerNextBlock/Background/NextBlockPosition").position
-    get_node("ContainerNextBlock/Background").add_child(current_block)
+    current_block.position = $ContainerNextBlock/Background/NextBlockPosition.position
+    $ContainerNextBlock/Background.add_child(current_block)
 
 
 func _on_ButtonPauseResume_pressed():
@@ -42,4 +43,13 @@ func _on_ButtonQuit_pressed():
 
 
 func _on_Board_gameover():
-    get_node("CenterContainer/GameOverLabel").visible = true
+    $CenterContainer/GameOverLabel.visible = true
+    $ButtonContainer/ButtonRetry.visible = true
+    $ButtonContainer/ButtonPauseResume.visible = false
+
+
+func _on_ButtonRetry_pressed():
+    $CenterContainer/GameOverLabel.visible = false
+    $ButtonContainer/ButtonRetry.visible = false
+    $ButtonContainer/ButtonPauseResume.visible = true
+    emit_signal("restart_game")

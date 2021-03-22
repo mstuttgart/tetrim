@@ -50,8 +50,9 @@ action = "ui_cancel"
 shortcut = SubResource( 10 )
 
 [sub_resource type="DynamicFont" id=12]
-size = 60
-outline_color = Color( 0.658824, 0.6, 0.517647, 1 )
+size = 70
+outline_size = 10
+outline_color = Color( 0.156863, 0.156863, 0.156863, 1 )
 font_data = ExtResource( 5 )
 
 [node name="Game" type="Node2D"]
@@ -397,6 +398,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ButtonRetry" type="Button" parent="GUI/ButtonContainer"]
+visible = false
+margin_right = 129.0
+margin_bottom = 34.0
+theme = ExtResource( 3 )
+text = "RETRY"
+
 [node name="ButtonPauseResume" type="Button" parent="GUI/ButtonContainer"]
 margin_right = 129.0
 margin_bottom = 34.0
@@ -432,10 +440,10 @@ __meta__ = {
 }
 
 [node name="GameOverLabel" type="Label" parent="GUI/CenterContainer"]
-margin_left = 31.0
-margin_top = 293.0
-margin_right = 290.0
-margin_bottom = 348.0
+margin_left = 10.0
+margin_top = 288.0
+margin_right = 312.0
+margin_bottom = 353.0
 grow_horizontal = 2
 grow_vertical = 2
 custom_fonts/font = SubResource( 12 )
@@ -453,5 +461,7 @@ __meta__ = {
 [connection signal="body_entered" from="Board/Roof" to="Board" method="_on_Roof_body_entered"]
 [connection signal="timeout" from="Board/FallingTimer" to="Board" method="_on_FallingTimer_timeout"]
 [connection signal="change_game_state" from="GUI" to="Board" method="_on_GUI_change_game_state"]
+[connection signal="restart_game" from="GUI" to="Board" method="_on_GUI_restart_game"]
+[connection signal="pressed" from="GUI/ButtonContainer/ButtonRetry" to="GUI" method="_on_ButtonRetry_pressed"]
 [connection signal="pressed" from="GUI/ButtonContainer/ButtonPauseResume" to="GUI" method="_on_ButtonPauseResume_pressed"]
 [connection signal="pressed" from="GUI/ButtonContainer/ButtonQuit" to="GUI" method="_on_ButtonQuit_pressed"]
