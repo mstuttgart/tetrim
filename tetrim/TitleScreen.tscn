@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/ThaleahFat.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://TitleScreen.gd" type="Script" id=2]
@@ -10,7 +10,6 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 65
-outline_color = Color( 0.658824, 0.6, 0.517647, 1 )
 font_data = ExtResource( 1 )
 
 [sub_resource type="InputEventAction" id=3]
@@ -19,9 +18,12 @@ action = "ui_select"
 [sub_resource type="ShortCut" id=4]
 shortcut = SubResource( 3 )
 
+[sub_resource type="DynamicFont" id=11]
+size = 65
+font_data = ExtResource( 1 )
+
 [sub_resource type="DynamicFont" id=5]
 size = 65
-outline_color = Color( 0.658824, 0.6, 0.517647, 1 )
 font_data = ExtResource( 1 )
 
 [sub_resource type="InputEventAction" id=6]
@@ -82,14 +84,11 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -320.0
-margin_top = -150.0
-margin_right = 320.0
-margin_bottom = 31.0
+margin_top = -175.5
+margin_bottom = 175.5
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
@@ -179,7 +178,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="S" type="Label" parent="VBoxContainer/TitleContainer"]
+[node name="M" type="Label" parent="VBoxContainer/TitleContainer"]
 margin_left = 447.0
 margin_right = 522.0
 margin_bottom = 138.0
@@ -196,7 +195,7 @@ __meta__ = {
 [node name="MenuContainer" type="VBoxContainer" parent="VBoxContainer"]
 margin_top = 142.0
 margin_right = 640.0
-margin_bottom = 280.0
+margin_bottom = 351.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
@@ -216,10 +215,22 @@ shortcut = SubResource( 4 )
 text = "PLAY"
 flat = true
 
-[node name="Quit" type="Button" parent="VBoxContainer/MenuContainer"]
+[node name="Credits" type="Button" parent="VBoxContainer/MenuContainer"]
 margin_top = 71.0
 margin_right = 640.0
 margin_bottom = 138.0
+custom_fonts/font = SubResource( 11 )
+custom_colors/font_color_disabled = Color( 0.658824, 0.6, 0.517647, 1 )
+custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
+custom_colors/font_color_hover = Color( 0.658824, 0.6, 0.517647, 1 )
+custom_colors/font_color_pressed = Color( 0.741176, 0.682353, 0.576471, 1 )
+text = "CREDITS"
+flat = true
+
+[node name="Quit" type="Button" parent="VBoxContainer/MenuContainer"]
+margin_top = 142.0
+margin_right = 640.0
+margin_bottom = 209.0
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color_disabled = Color( 0.658824, 0.6, 0.517647, 1 )
 custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
@@ -239,12 +250,12 @@ __meta__ = {
 }
 
 [node name="Credits" type="Label" parent="CenterContainer"]
-margin_left = 169.0
-margin_right = 471.0
+margin_left = 171.0
+margin_right = 469.0
 margin_bottom = 19.0
 custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
-text = "Copyright 2020 - MICHELL STUTTGART"
+text = "Copyright 2021 - MICHELL STUTTGART"
 align = 1
 valign = 1
 
@@ -261,5 +272,6 @@ __meta__ = {
 anims/FadeIn = SubResource( 9 )
 anims/FadeOut = SubResource( 10 )
 [connection signal="pressed" from="VBoxContainer/MenuContainer/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="VBoxContainer/MenuContainer/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/MenuContainer/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="animation_finished" from="FadeBackground/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

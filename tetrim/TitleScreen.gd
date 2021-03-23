@@ -19,3 +19,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 func _on_Quit_pressed():
     get_tree().quit()
+
+
+func _on_Credits_pressed():
+    get_tree().change_scene("res://CreditScreen.tscn")
