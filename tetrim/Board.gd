@@ -8,13 +8,13 @@ signal gameover
 # States of game
 enum States { STOP, PLAY, PAUSE }
 
-# Keeps track of the current state
-var _state = States.STOP
-
 # Declare member const here.
 const TILE_SIZE = 32
+const FAST_DOWN_SPEED = 20
 
 # Declare member variables here.
+
+# Block scenes
 var block_list = [
     preload("res://blocks/S.tscn"),
     preload("res://blocks/L.tscn"),
@@ -26,6 +26,12 @@ var block_list = [
 ]
 
 var tile_scene = preload("res://blocks/Tile.tscn")
+
+# Keeps track of the current state
+var _state = States.STOP
+
+# Keeps track of fast down enable
+var _fast_down = false
 
 # Flag to stop down block
 var stop_block = 0
@@ -52,6 +58,7 @@ func _game_start():
 
     # Reset score
     _update_score(0, 0)
+    _fast_down = false
 
     # Instance vector
     velocity_down = Vector2(0, 1).normalized() * TILE_SIZE
@@ -87,12 +94,15 @@ func _process(delta):
         velocity.x += 1
 
     elif Input.is_action_just_pressed("ui_down"):
-        velocity.y += 2
-        score += 2
-        _update_score(score, lines)
+        velocity.y += 1
+        _fast_down = true
 
-    if velocity.length() > 0:
-        velocity = velocity * TILE_SIZE
+    # Increase down speed of player block
+    if _fast_down and velocity.y > 0:
+        velocity = velocity * TILE_SIZE * FAST_DOWN_SPEED
+
+    elif velocity.length() > 0:
+        velocity = velocity.normalized() * TILE_SIZE
 
     player_block.move_and_collide(velocity)
 
@@ -178,6 +188,11 @@ func _on_FallingTimer_timeout():
     if stop_block == 2:
         # Block not can fall
         stop_block = 0
+
+        if _fast_down:
+            score += 2
+            _fast_down = false
+            _update_score(score, lines)
 
         # Save current player block to group
         for tile in player_block.get_children():
