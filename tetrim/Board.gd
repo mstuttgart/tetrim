@@ -11,6 +11,7 @@ enum States { STOP, PLAY, PAUSE }
 # Declare member const here.
 const TILE_SIZE = 32
 const FAST_DOWN_SPEED = 20
+const FAST_DOWN_POINT = 5
 
 # Declare member variables here.
 
@@ -44,8 +45,8 @@ var next_block
 var velocity_down
 
 # Player score
-var score = 0
-var lines = 0
+var _score = 0
+var _completed_lines = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -155,7 +156,7 @@ func _clear_line():
 
         index += 1
 
-    # Move the tile lines down
+    # Move the tile _completed_lines down
     for idx in completed_line_index_list:
 
         for pos in $PositionCursor.get_children().slice(idx, $PositionCursor.get_children().size() - 1):
@@ -164,14 +165,15 @@ func _clear_line():
                 tile.position += velocity_down
 
     if completed_line_index_list.size():
-        score += 100 * pow(2, completed_line_index_list.size() - 1)
-        lines += completed_line_index_list.size()
-        _update_score(score, lines)
+        var score_value = _score + 100 * pow(2, completed_line_index_list.size() - 1)
+        var line_count = _completed_lines + completed_line_index_list.size()
+        _update_score(score_value, line_count)
 
-
-func _update_score(score, lines):
-    # Update score and line on GUI
-    emit_signal("update_score", score, lines)
+func _update_score(score_value, lines_count):
+    # Update _score and line on GUI
+    _score = score_value
+    _completed_lines = lines_count
+    emit_signal("update_score", _score, _completed_lines)
 
 func _on_FallingTimer_timeout():
 
@@ -190,9 +192,8 @@ func _on_FallingTimer_timeout():
         stop_block = 0
 
         if _fast_down:
-            score += 2
             _fast_down = false
-            _update_score(score, lines)
+            _update_score(_score + FAST_DOWN_POINT, _completed_lines)
 
         # Save current player block to group
         for tile in player_block.get_children():
