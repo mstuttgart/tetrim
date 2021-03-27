@@ -94,18 +94,24 @@ func _process(delta):
     elif Input.is_action_just_pressed("ui_right"):
         velocity.x += 1
 
-    elif Input.is_action_just_pressed("ui_down"):
+    elif Input.is_action_pressed("ui_down"):
         velocity.y += 1
         _fast_down = true
 
+    elif Input.is_action_just_released("ui_down"):
+        _fast_down = false
+
     # Increase down speed of player block
     if _fast_down and velocity.y > 0:
-        velocity = velocity * TILE_SIZE * FAST_DOWN_SPEED
+        velocity = velocity_down
 
     elif velocity.length() > 0:
         velocity = velocity.normalized() * TILE_SIZE
 
-    player_block.move_and_collide(velocity)
+    var transform2d = Transform2D(player_block.rotation, player_block.position + position)
+
+    if not player_block.test_move(transform2d, velocity * 0.5, false):
+        player_block.position += velocity
 
 
 func _get_player_block():
@@ -180,7 +186,8 @@ func _on_FallingTimer_timeout():
     if _state != States.PLAY:
         return
 
-    player_block.move_and_collide(velocity_down)
+    if not _fast_down:
+        player_block.move_and_collide(velocity_down)
 
     var transform2d = Transform2D(player_block.rotation, player_block.position + position)
 
