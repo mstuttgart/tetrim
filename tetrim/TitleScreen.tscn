@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/ThaleahFat.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://TitleScreen.gd" type="Script" id=2]
+[ext_resource path="res://assets/Background_tune.ogg" type="AudioStream" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 150
@@ -18,26 +19,26 @@ action = "ui_select"
 [sub_resource type="ShortCut" id=4]
 shortcut = SubResource( 3 )
 
-[sub_resource type="DynamicFont" id=11]
-size = 65
-font_data = ExtResource( 1 )
-
 [sub_resource type="DynamicFont" id=5]
 size = 65
 font_data = ExtResource( 1 )
 
-[sub_resource type="InputEventAction" id=6]
+[sub_resource type="DynamicFont" id=6]
+size = 65
+font_data = ExtResource( 1 )
+
+[sub_resource type="InputEventAction" id=7]
 action = "ui_cancel"
 
-[sub_resource type="ShortCut" id=7]
-shortcut = SubResource( 6 )
+[sub_resource type="ShortCut" id=8]
+shortcut = SubResource( 7 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=9]
 size = 20
 outline_color = Color( 0.658824, 0.6, 0.517647, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -52,7 +53,7 @@ tracks/0/keys = {
 "values": [ Color( 0.113725, 0.12549, 0.129412, 1 ), Color( 0.113725, 0.12549, 0.129412, 0 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -219,7 +220,7 @@ flat = true
 margin_top = 71.0
 margin_right = 640.0
 margin_bottom = 138.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color_disabled = Color( 0.658824, 0.6, 0.517647, 1 )
 custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
 custom_colors/font_color_hover = Color( 0.658824, 0.6, 0.517647, 1 )
@@ -231,12 +232,12 @@ flat = true
 margin_top = 142.0
 margin_right = 640.0
 margin_bottom = 209.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color_disabled = Color( 0.658824, 0.6, 0.517647, 1 )
 custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
 custom_colors/font_color_hover = Color( 0.658824, 0.6, 0.517647, 1 )
 custom_colors/font_color_pressed = Color( 0.741176, 0.682353, 0.576471, 1 )
-shortcut = SubResource( 7 )
+shortcut = SubResource( 8 )
 text = "QUIT"
 flat = true
 
@@ -253,7 +254,7 @@ __meta__ = {
 margin_left = 171.0
 margin_right = 469.0
 margin_bottom = 19.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
 text = "Copyright 2021 - MICHELL STUTTGART"
 align = 1
@@ -269,8 +270,11 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="FadeBackground"]
-anims/FadeIn = SubResource( 9 )
-anims/FadeOut = SubResource( 10 )
+anims/FadeIn = SubResource( 10 )
+anims/FadeOut = SubResource( 11 )
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 [connection signal="pressed" from="VBoxContainer/MenuContainer/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="VBoxContainer/MenuContainer/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/MenuContainer/Quit" to="." method="_on_Quit_pressed"]

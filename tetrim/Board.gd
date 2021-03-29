@@ -73,6 +73,8 @@ func _game_start():
     # Active state on PLAY
     _state = States.PLAY
 
+    $BackgroundMusic.play()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # warning-ignore:unused_argument
@@ -174,6 +176,7 @@ func _clear_line():
         var score_value = _score + 100 * pow(2, completed_line_index_list.size() - 1)
         var line_count = _completed_lines + completed_line_index_list.size()
         _update_score(score_value, line_count)
+        $CleanLineSFX.play()
 
 func _update_score(score_value, lines_count):
     # Update _score and line on GUI
@@ -221,6 +224,9 @@ func _on_FallingTimer_timeout():
 func _on_Roof_body_entered(body):
     _state = States.STOP
     emit_signal("gameover")
+    $BackgroundMusic.stop()
+    $GameOverSFX.play()
+
 
 func _on_GUI_change_game_state():
 
