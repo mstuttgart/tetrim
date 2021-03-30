@@ -46,19 +46,19 @@ size = 25
 outline_color = Color( 0.658824, 0.6, 0.517647, 1 )
 font_data = ExtResource( 5 )
 
-[sub_resource type="InputEventAction" id=13]
-action = "ui_select"
-
-[sub_resource type="ShortCut" id=14]
-shortcut = SubResource( 13 )
-
 [sub_resource type="InputEventAction" id=10]
-action = "ui_cancel"
+action = "ui_select"
 
 [sub_resource type="ShortCut" id=11]
 shortcut = SubResource( 10 )
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="InputEventAction" id=12]
+action = "ui_cancel"
+
+[sub_resource type="ShortCut" id=13]
+shortcut = SubResource( 12 )
+
+[sub_resource type="DynamicFont" id=14]
 size = 70
 outline_size = 10
 outline_color = Color( 0.156863, 0.156863, 0.156863, 1 )
@@ -427,7 +427,7 @@ text = "RETRY"
 margin_right = 129.0
 margin_bottom = 34.0
 theme = ExtResource( 3 )
-shortcut = SubResource( 14 )
+shortcut = SubResource( 11 )
 text = "PAUSE"
 
 [node name="Separator" type="ColorRect" parent="GUI/ButtonContainer"]
@@ -445,7 +445,7 @@ margin_top = 58.0
 margin_right = 129.0
 margin_bottom = 92.0
 theme = ExtResource( 3 )
-shortcut = SubResource( 11 )
+shortcut = SubResource( 13 )
 text = "QUIT"
 
 [node name="CenterContainer" type="CenterContainer" parent="GUI"]
@@ -465,7 +465,7 @@ margin_right = 312.0
 margin_bottom = 353.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 14 )
 custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
 custom_colors/font_color_shadow = Color( 0.658824, 0.6, 0.517647, 1 )
 text = "GAME OVER"
@@ -482,7 +482,7 @@ margin_right = 248.0
 margin_bottom = 353.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 14 )
 custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
 custom_colors/font_color_shadow = Color( 0.658824, 0.6, 0.517647, 1 )
 text = "PAUSE"

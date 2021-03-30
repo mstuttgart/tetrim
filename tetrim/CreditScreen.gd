@@ -1,4 +1,4 @@
-extends Control
+extends ColorRect
 
 func _ready():
     $BackgroundMusic.play()
