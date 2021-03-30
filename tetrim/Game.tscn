@@ -46,6 +46,12 @@ size = 25
 outline_color = Color( 0.658824, 0.6, 0.517647, 1 )
 font_data = ExtResource( 5 )
 
+[sub_resource type="InputEventAction" id=13]
+action = "ui_select"
+
+[sub_resource type="ShortCut" id=14]
+shortcut = SubResource( 13 )
+
 [sub_resource type="InputEventAction" id=10]
 action = "ui_cancel"
 
@@ -421,6 +427,7 @@ text = "RETRY"
 margin_right = 129.0
 margin_bottom = 34.0
 theme = ExtResource( 3 )
+shortcut = SubResource( 14 )
 text = "PAUSE"
 
 [node name="Separator" type="ColorRect" parent="GUI/ButtonContainer"]
