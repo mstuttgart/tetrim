@@ -9,6 +9,7 @@ var current_block
 
 func _ready():
     $CenterContainer/GameOverLabel.visible = false
+    $CenterContainer/PauseLabel.visible = false
 
 func _on_Board_update_score(score, lines):
     # Update score and line numbers
@@ -31,8 +32,10 @@ func _on_ButtonPauseResume_pressed():
 
     if $ButtonContainer/ButtonPauseResume.text == 'PAUSE':
         $ButtonContainer/ButtonPauseResume.text = 'CONTINUE'
+        $CenterContainer/PauseLabel.visible = true
     else:
         $ButtonContainer/ButtonPauseResume.text = 'PAUSE'
+        $CenterContainer/PauseLabel.visible = false
 
     # Send signal to game to change state
     emit_signal("change_game_state")
