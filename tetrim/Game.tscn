@@ -64,24 +64,41 @@ outline_size = 10
 outline_color = Color( 0.156863, 0.156863, 0.156863, 1 )
 font_data = ExtResource( 5 )
 
-[node name="Game" type="Node2D"]
-
-[node name="Background" type="ColorRect" parent="."]
-margin_right = 640.0
-margin_bottom = 720.0
+[node name="Game" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 color = Color( 0.113725, 0.12549, 0.129412, 1 )
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
-[node name="Board" type="Node2D" parent="."]
-position = Vector2( 32, 32 )
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -320.0
+margin_top = -350.0
+margin_right = 320.0
+margin_bottom = 350.0
+use_top_left = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Board" type="Node2D" parent="CenterContainer/HBoxContainer"]
+position = Vector2( 32, 34 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="BackgroundBorder" type="ColorRect" parent="Board"]
+[node name="BackgroundBorder" type="ColorRect" parent="CenterContainer/HBoxContainer/Board"]
 margin_left = -2.0
 margin_top = -2.0
 margin_right = 322.0
@@ -93,7 +110,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Background" type="ColorRect" parent="Board"]
+[node name="Background" type="ColorRect" parent="CenterContainer/HBoxContainer/Board"]
 margin_right = 320.0
 margin_bottom = 640.0
 color = Color( 0.156863, 0.156863, 0.156863, 1 )
@@ -101,11 +118,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="StartPosition" type="Position2D" parent="Board"]
+[node name="StartPosition" type="Position2D" parent="CenterContainer/HBoxContainer/Board"]
 position = Vector2( 176, -16 )
 z_index = -1
 
-[node name="Roof" type="Area2D" parent="Board"]
+[node name="Roof" type="Area2D" parent="CenterContainer/HBoxContainer/Board"]
 position = Vector2( 160, -16 )
 z_index = 1
 collision_layer = 16
@@ -114,7 +131,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Background" type="ColorRect" parent="Board/Roof"]
+[node name="Background" type="ColorRect" parent="CenterContainer/HBoxContainer/Board/Roof"]
 margin_left = -160.0
 margin_top = -18.0
 margin_right = 160.0
@@ -125,10 +142,10 @@ __meta__ = {
 "_editor_description_": "Hide blocks"
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Roof"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterContainer/HBoxContainer/Board/Roof"]
 shape = SubResource( 1 )
 
-[node name="Floor" type="StaticBody2D" parent="Board"]
+[node name="Floor" type="StaticBody2D" parent="CenterContainer/HBoxContainer/Board"]
 position = Vector2( 160, 656 )
 collision_layer = 4
 collision_mask = 3
@@ -137,10 +154,10 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Floor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterContainer/HBoxContainer/Board/Floor"]
 shape = SubResource( 2 )
 
-[node name="WallLeft" type="StaticBody2D" parent="Board"]
+[node name="WallLeft" type="StaticBody2D" parent="CenterContainer/HBoxContainer/Board"]
 position = Vector2( -16, 320 )
 collision_layer = 4
 collision_mask = 3
@@ -149,10 +166,10 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/WallLeft"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterContainer/HBoxContainer/Board/WallLeft"]
 shape = SubResource( 3 )
 
-[node name="WallRight" type="StaticBody2D" parent="Board"]
+[node name="WallRight" type="StaticBody2D" parent="CenterContainer/HBoxContainer/Board"]
 position = Vector2( 336, 320 )
 collision_layer = 4
 collision_mask = 3
@@ -161,95 +178,93 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/WallRight"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterContainer/HBoxContainer/Board/WallRight"]
 shape = SubResource( 4 )
 
-[node name="FallingTimer" type="Timer" parent="Board"]
+[node name="FallingTimer" type="Timer" parent="CenterContainer/HBoxContainer/Board"]
 wait_time = 0.5
 __meta__ = {
 "_editor_description_": "Timer to move block to down"
 }
 
-[node name="PositionCursor" type="Node2D" parent="Board"]
+[node name="PositionCursor" type="Node2D" parent="CenterContainer/HBoxContainer/Board"]
 
-[node name="Position_00" parent="Board/PositionCursor" instance=ExtResource( 2 )]
+[node name="Position_00" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
 position = Vector2( 0, 624 )
 
-[node name="Position_01" parent="Board/PositionCursor" instance=ExtResource( 2 )]
+[node name="Position_01" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
 position = Vector2( 0, 592 )
 
-[node name="Position_02" parent="Board/PositionCursor" instance=ExtResource( 2 )]
+[node name="Position_02" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
 position = Vector2( 0, 560 )
 
-[node name="Position_03" parent="Board/PositionCursor" instance=ExtResource( 2 )]
+[node name="Position_03" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
 position = Vector2( 0, 528 )
 
-[node name="Position_04" parent="Board/PositionCursor" instance=ExtResource( 2 )]
+[node name="Position_04" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
 position = Vector2( 0, 496 )
 
-[node name="Position_05" parent="Board/PositionCursor" instance=ExtResource( 2 )]
+[node name="Position_05" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
 position = Vector2( 0, 464 )
 
-[node name="Position_06" parent="Board/PositionCursor" instance=ExtResource( 2 )]
+[node name="Position_06" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
 position = Vector2( 0, 432 )
 
-[node name="Position_07" parent="Board/PositionCursor" instance=ExtResource( 2 )]
+[node name="Position_07" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
 position = Vector2( 0, 400 )
 
-[node name="Position_08" parent="Board/PositionCursor" instance=ExtResource( 2 )]
+[node name="Position_08" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
 position = Vector2( 0, 368 )
 
-[node name="Position_09" parent="Board/PositionCursor" instance=ExtResource( 2 )]
+[node name="Position_09" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
 position = Vector2( 0, 336 )
 
-[node name="Position_10" parent="Board/PositionCursor" instance=ExtResource( 2 )]
+[node name="Position_10" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
 position = Vector2( 0, 304 )
 
-[node name="Position_11" parent="Board/PositionCursor" instance=ExtResource( 2 )]
+[node name="Position_11" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
 position = Vector2( 0, 272 )
 
-[node name="Position_12" parent="Board/PositionCursor" instance=ExtResource( 2 )]
+[node name="Position_12" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
 position = Vector2( 0, 240 )
 
-[node name="Position_13" parent="Board/PositionCursor" instance=ExtResource( 2 )]
+[node name="Position_13" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
 position = Vector2( 0, 208 )
 
-[node name="Position_14" parent="Board/PositionCursor" instance=ExtResource( 2 )]
+[node name="Position_14" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
 position = Vector2( 0, 176 )
 
-[node name="Position_15" parent="Board/PositionCursor" instance=ExtResource( 2 )]
+[node name="Position_15" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
 position = Vector2( 0, 144 )
 
-[node name="Position_16" parent="Board/PositionCursor" instance=ExtResource( 2 )]
+[node name="Position_16" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
 position = Vector2( 0, 112 )
 
-[node name="Position_17" parent="Board/PositionCursor" instance=ExtResource( 2 )]
+[node name="Position_17" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
 position = Vector2( 0, 80 )
 
-[node name="Position_18" parent="Board/PositionCursor" instance=ExtResource( 2 )]
+[node name="Position_18" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
 position = Vector2( 0, 48 )
 
-[node name="Position_19" parent="Board/PositionCursor" instance=ExtResource( 2 )]
+[node name="Position_19" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
 position = Vector2( 0, 16 )
 
-[node name="CleanLineSFX" type="AudioStreamPlayer2D" parent="Board"]
+[node name="CleanLineSFX" type="AudioStreamPlayer2D" parent="CenterContainer/HBoxContainer/Board"]
 stream = ExtResource( 6 )
 
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="Board"]
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="CenterContainer/HBoxContainer/Board"]
 stream = ExtResource( 7 )
 
-[node name="GameOverSFX" type="AudioStreamPlayer" parent="Board"]
+[node name="GameOverSFX" type="AudioStreamPlayer" parent="CenterContainer/HBoxContainer/Board"]
 stream = ExtResource( 8 )
 
-[node name="GUI" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="GUI" type="Control" parent="CenterContainer/HBoxContainer"]
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ContainerNextBlock" type="VBoxContainer" parent="GUI"]
+[node name="ContainerNextBlock" type="VBoxContainer" parent="CenterContainer/HBoxContainer/GUI"]
 margin_left = 432.0
 margin_top = 114.0
 margin_right = 592.0
@@ -258,14 +273,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NextBlockLabel" type="Label" parent="GUI/ContainerNextBlock"]
+[node name="NextBlockLabel" type="Label" parent="CenterContainer/HBoxContainer/GUI/ContainerNextBlock"]
 margin_right = 160.0
 margin_bottom = 24.0
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
 text = "NEXT"
 
-[node name="Background" type="ColorRect" parent="GUI/ContainerNextBlock"]
+[node name="Background" type="ColorRect" parent="CenterContainer/HBoxContainer/GUI/ContainerNextBlock"]
 margin_top = 28.0
 margin_right = 160.0
 margin_bottom = 186.0
@@ -276,10 +291,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NextBlockPosition" type="Position2D" parent="GUI/ContainerNextBlock/Background"]
+[node name="NextBlockPosition" type="Position2D" parent="CenterContainer/HBoxContainer/GUI/ContainerNextBlock/Background"]
 position = Vector2( 64, 92 )
 
-[node name="BackgroundBorder" type="ColorRect" parent="GUI/ContainerNextBlock/Background"]
+[node name="BackgroundBorder" type="ColorRect" parent="CenterContainer/HBoxContainer/GUI/ContainerNextBlock/Background"]
 show_behind_parent = true
 margin_left = -2.0
 margin_top = -2.0
@@ -290,7 +305,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ContainerScore" type="VBoxContainer" parent="GUI"]
+[node name="ContainerScore" type="VBoxContainer" parent="CenterContainer/HBoxContainer/GUI"]
 margin_left = 432.0
 margin_top = 323.0
 margin_right = 561.0
@@ -299,7 +314,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ScoreLabel" type="Label" parent="GUI/ContainerScore"]
+[node name="ScoreLabel" type="Label" parent="CenterContainer/HBoxContainer/GUI/ContainerScore"]
 margin_right = 129.0
 margin_bottom = 24.0
 custom_fonts/font = SubResource( 6 )
@@ -310,7 +325,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ScoreBackground" type="ColorRect" parent="GUI/ContainerScore"]
+[node name="ScoreBackground" type="ColorRect" parent="CenterContainer/HBoxContainer/GUI/ContainerScore"]
 margin_top = 28.0
 margin_right = 129.0
 margin_bottom = 60.0
@@ -321,7 +336,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BackgroundBorder" type="ColorRect" parent="GUI/ContainerScore/ScoreBackground"]
+[node name="BackgroundBorder" type="ColorRect" parent="CenterContainer/HBoxContainer/GUI/ContainerScore/ScoreBackground"]
 show_behind_parent = true
 margin_left = -2.0
 margin_top = -2.0
@@ -332,7 +347,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ScoreValue" type="Label" parent="GUI/ContainerScore/ScoreBackground"]
+[node name="ScoreValue" type="Label" parent="CenterContainer/HBoxContainer/GUI/ContainerScore/ScoreBackground"]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
@@ -348,7 +363,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ContainerLines" type="VBoxContainer" parent="GUI"]
+[node name="ContainerLines" type="VBoxContainer" parent="CenterContainer/HBoxContainer/GUI"]
 margin_left = 432.0
 margin_top = 402.0
 margin_right = 561.0
@@ -357,7 +372,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LinesLabel" type="Label" parent="GUI/ContainerLines"]
+[node name="LinesLabel" type="Label" parent="CenterContainer/HBoxContainer/GUI/ContainerLines"]
 margin_right = 129.0
 margin_bottom = 24.0
 custom_fonts/font = SubResource( 8 )
@@ -369,7 +384,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LinesBackground" type="ColorRect" parent="GUI/ContainerLines"]
+[node name="LinesBackground" type="ColorRect" parent="CenterContainer/HBoxContainer/GUI/ContainerLines"]
 margin_top = 28.0
 margin_right = 129.0
 margin_bottom = 60.0
@@ -380,7 +395,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BackgroundBorder" type="ColorRect" parent="GUI/ContainerLines/LinesBackground"]
+[node name="BackgroundBorder" type="ColorRect" parent="CenterContainer/HBoxContainer/GUI/ContainerLines/LinesBackground"]
 show_behind_parent = true
 margin_left = -2.0
 margin_top = -2.0
@@ -391,7 +406,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LinesCount" type="Label" parent="GUI/ContainerLines/LinesBackground"]
+[node name="LinesCount" type="Label" parent="CenterContainer/HBoxContainer/GUI/ContainerLines/LinesBackground"]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
@@ -407,7 +422,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ButtonContainer" type="VBoxContainer" parent="GUI"]
+[node name="ButtonContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer/GUI"]
 margin_left = 432.0
 margin_top = 514.0
 margin_right = 561.0
@@ -416,21 +431,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ButtonRetry" type="Button" parent="GUI/ButtonContainer"]
+[node name="ButtonRetry" type="Button" parent="CenterContainer/HBoxContainer/GUI/ButtonContainer"]
 visible = false
 margin_right = 129.0
 margin_bottom = 34.0
 theme = ExtResource( 3 )
 text = "RETRY"
 
-[node name="ButtonPauseResume" type="Button" parent="GUI/ButtonContainer"]
+[node name="ButtonPauseResume" type="Button" parent="CenterContainer/HBoxContainer/GUI/ButtonContainer"]
 margin_right = 129.0
 margin_bottom = 34.0
 theme = ExtResource( 3 )
 shortcut = SubResource( 11 )
 text = "PAUSE"
 
-[node name="Separator" type="ColorRect" parent="GUI/ButtonContainer"]
+[node name="Separator" type="ColorRect" parent="CenterContainer/HBoxContainer/GUI/ButtonContainer"]
 margin_top = 38.0
 margin_right = 129.0
 margin_bottom = 54.0
@@ -440,7 +455,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ButtonQuit" type="Button" parent="GUI/ButtonContainer"]
+[node name="ButtonQuit" type="Button" parent="CenterContainer/HBoxContainer/GUI/ButtonContainer"]
 margin_top = 58.0
 margin_right = 129.0
 margin_bottom = 92.0
@@ -448,21 +463,20 @@ theme = ExtResource( 3 )
 shortcut = SubResource( 13 )
 text = "QUIT"
 
-[node name="CenterContainer" type="CenterContainer" parent="GUI"]
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/HBoxContainer/GUI"]
 anchor_bottom = 1.0
 margin_left = 32.0
 margin_top = 32.0
 margin_right = 354.0
-margin_bottom = 674.0
+margin_bottom = -26.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GameOverLabel" type="Label" parent="GUI/CenterContainer"]
+[node name="GameOverLabel" type="Label" parent="CenterContainer/HBoxContainer/GUI/CenterContainer"]
 margin_left = 10.0
-margin_top = 288.0
 margin_right = 312.0
-margin_bottom = 353.0
+margin_bottom = 65.0
 grow_horizontal = 2
 grow_vertical = 2
 custom_fonts/font = SubResource( 14 )
@@ -475,11 +489,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PauseLabel" type="Label" parent="GUI/CenterContainer"]
+[node name="PauseLabel" type="Label" parent="CenterContainer/HBoxContainer/GUI/CenterContainer"]
 margin_left = 73.0
-margin_top = 288.0
 margin_right = 248.0
-margin_bottom = 353.0
+margin_bottom = 65.0
 grow_horizontal = 2
 grow_vertical = 2
 custom_fonts/font = SubResource( 14 )
@@ -491,13 +504,13 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="gameover" from="Board" to="GUI" method="_on_Board_gameover"]
-[connection signal="update_next_block" from="Board" to="GUI" method="_on_Board_update_next_block"]
-[connection signal="update_score" from="Board" to="GUI" method="_on_Board_update_score"]
-[connection signal="body_entered" from="Board/Roof" to="Board" method="_on_Roof_body_entered"]
-[connection signal="timeout" from="Board/FallingTimer" to="Board" method="_on_FallingTimer_timeout"]
-[connection signal="change_game_state" from="GUI" to="Board" method="_on_GUI_change_game_state"]
-[connection signal="restart_game" from="GUI" to="Board" method="_on_GUI_restart_game"]
-[connection signal="pressed" from="GUI/ButtonContainer/ButtonRetry" to="GUI" method="_on_ButtonRetry_pressed"]
-[connection signal="pressed" from="GUI/ButtonContainer/ButtonPauseResume" to="GUI" method="_on_ButtonPauseResume_pressed"]
-[connection signal="pressed" from="GUI/ButtonContainer/ButtonQuit" to="GUI" method="_on_ButtonQuit_pressed"]
+[connection signal="gameover" from="CenterContainer/HBoxContainer/Board" to="CenterContainer/HBoxContainer/GUI" method="_on_Board_gameover"]
+[connection signal="update_next_block" from="CenterContainer/HBoxContainer/Board" to="CenterContainer/HBoxContainer/GUI" method="_on_Board_update_next_block"]
+[connection signal="update_score" from="CenterContainer/HBoxContainer/Board" to="CenterContainer/HBoxContainer/GUI" method="_on_Board_update_score"]
+[connection signal="body_entered" from="CenterContainer/HBoxContainer/Board/Roof" to="CenterContainer/HBoxContainer/Board" method="_on_Roof_body_entered"]
+[connection signal="timeout" from="CenterContainer/HBoxContainer/Board/FallingTimer" to="CenterContainer/HBoxContainer/Board" method="_on_FallingTimer_timeout"]
+[connection signal="change_game_state" from="CenterContainer/HBoxContainer/GUI" to="CenterContainer/HBoxContainer/Board" method="_on_GUI_change_game_state"]
+[connection signal="restart_game" from="CenterContainer/HBoxContainer/GUI" to="CenterContainer/HBoxContainer/Board" method="_on_GUI_restart_game"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/GUI/ButtonContainer/ButtonRetry" to="CenterContainer/HBoxContainer/GUI" method="_on_ButtonRetry_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/GUI/ButtonContainer/ButtonPauseResume" to="CenterContainer/HBoxContainer/GUI" method="_on_ButtonPauseResume_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/GUI/ButtonContainer/ButtonQuit" to="CenterContainer/HBoxContainer/GUI" method="_on_ButtonQuit_pressed"]
