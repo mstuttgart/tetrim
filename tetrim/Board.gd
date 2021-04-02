@@ -34,9 +34,6 @@ var _state = States.STOP
 # Keeps track of fast down enable
 var _fast_down = false
 
-# Flag to stop down block
-var stop_block = 0
-
 # player block node
 var player_block
 var next_block
@@ -105,15 +102,11 @@ func _process(delta):
 
     # Increase down speed of player block
     if _fast_down and velocity.y > 0:
-        velocity = velocity_down
+        player_block.move_and_collide(velocity_down)
 
     elif velocity.length() > 0:
         velocity = velocity.normalized() * TILE_SIZE
-
-    var transform2d = Transform2D(player_block.rotation, player_block.position + position)
-
-    if not player_block.test_move(transform2d, velocity * 0.5, false):
-        player_block.position += velocity
+        player_block.move_and_collide(velocity)
 
 
 func _get_player_block():
@@ -132,10 +125,9 @@ func _get_player_block():
     next_block = get_next_block()
     emit_signal("update_next_block", next_block)
 
-    player_block.position = $StartPosition.position
-
     # Add player to board tree
     add_child(player_block)
+    player_block.position = $StartPosition.position
 
 func get_next_block():
     return block_list[randi() % block_list.size()].instance()
@@ -152,7 +144,7 @@ func _clear_line():
 
         for tile in get_tree().get_nodes_in_group('StuckBlocks'):
 
-            if tile.position.y == pos.get_global_position().y:
+            if tile.position.y == pos.position.y:
                 pos.append_tile(tile)
 
         # Area is complete (10 blocks)
@@ -189,17 +181,14 @@ func _on_FallingTimer_timeout():
     if _state != States.PLAY:
         return
 
+    var collision_info
+
     if not _fast_down:
-        player_block.move_and_collide(velocity_down)
+        collision_info = player_block.move_and_collide(velocity_down)
+    else:
+        collision_info = false
 
-    var transform2d = Transform2D(player_block.rotation, player_block.position + position)
-
-    if player_block.test_move(transform2d, velocity_down * 0.5, false) and stop_block != 2:
-        stop_block += 1
-
-    if stop_block == 2:
-        # Block not can fall
-        stop_block = 0
+    if collision_info:
 
         if _fast_down:
             _fast_down = false
@@ -211,8 +200,8 @@ func _on_FallingTimer_timeout():
             # Create tile and insert it in scene tree
             var tile_body = tile_scene.instance()
 
-            tile_body.position = tile.get_global_position() - position
             tile_body.get_node("Sprite").modulate = tile.get_node("Sprite").modulate
+            tile_body.position = tile.position + player_block.position
             add_child(tile_body)
 
         # Generate a new block to player
