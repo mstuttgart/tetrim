@@ -134,7 +134,7 @@ __meta__ = {
 
 [node name="Background" type="ColorRect" parent="CenterContainer/HBoxContainer/Board/Roof"]
 margin_left = -160.0
-margin_top = -18.0
+margin_top = -27.0
 margin_right = 160.0
 margin_bottom = 14.0
 color = Color( 0.113725, 0.12549, 0.129412, 1 )
