@@ -1,0 +1,267 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/ThaleahFat.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://SettingsScreen.gd" type="Script" id=2]
+[ext_resource path="res://assets/Background_tune.ogg" type="AudioStream" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 133
+outline_size = 3
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 22
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 22
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 65
+font_data = ExtResource( 1 )
+
+[sub_resource type="InputEventAction" id=5]
+action = "ui_cancel"
+
+[sub_resource type="ShortCut" id=6]
+shortcut = SubResource( 5 )
+
+[node name="CreditScreen" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.113725, 0.12549, 0.129412, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_top = 0.28
+anchor_right = 1.0
+anchor_bottom = 0.28
+margin_top = -81.4
+margin_bottom = 81.6
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 640.0
+margin_bottom = 163.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="S1" type="Label" parent="VBoxContainer/TitleContainer"]
+margin_left = 68.0
+margin_top = 20.0
+margin_right = 135.0
+margin_bottom = 143.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.984314, 0.286275, 0.203922, 1 )
+custom_colors/font_outline_modulate = Color( 0.8, 0.141176, 0.113725, 1 )
+text = "S"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="E" type="Label" parent="VBoxContainer/TitleContainer"]
+margin_left = 139.0
+margin_top = 20.0
+margin_right = 206.0
+margin_bottom = 143.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.721569, 0.733333, 0.14902, 1 )
+custom_colors/font_outline_modulate = Color( 0.596078, 0.592157, 0.101961, 1 )
+text = "E"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="T1" type="Label" parent="VBoxContainer/TitleContainer"]
+margin_left = 210.0
+margin_top = 20.0
+margin_right = 268.0
+margin_bottom = 143.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.980392, 0.741176, 0.184314, 1 )
+custom_colors/font_outline_modulate = Color( 0.843137, 0.6, 0.129412, 1 )
+text = "T"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="T2" type="Label" parent="VBoxContainer/TitleContainer"]
+margin_left = 272.0
+margin_top = 20.0
+margin_right = 330.0
+margin_bottom = 143.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.513726, 0.647059, 0.596078, 1 )
+custom_colors/font_outline_modulate = Color( 0.270588, 0.521569, 0.533333, 1 )
+text = "T"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="I" type="Label" parent="VBoxContainer/TitleContainer"]
+margin_left = 334.0
+margin_top = 20.0
+margin_right = 359.0
+margin_bottom = 143.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.827451, 0.52549, 0.607843, 1 )
+custom_colors/font_outline_modulate = Color( 0.694118, 0.384314, 0.52549, 1 )
+text = "I"
+align = 3
+valign = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="N" type="Label" parent="VBoxContainer/TitleContainer"]
+margin_left = 363.0
+margin_top = 20.0
+margin_right = 430.0
+margin_bottom = 143.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.556863, 0.752941, 0.462745, 1 )
+custom_colors/font_outline_modulate = Color( 0.407843, 0.615686, 0.415686, 1 )
+text = "N"
+align = 3
+valign = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="G" type="Label" parent="VBoxContainer/TitleContainer"]
+margin_left = 434.0
+margin_top = 20.0
+margin_right = 501.0
+margin_bottom = 143.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
+custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
+text = "G"
+align = 3
+valign = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="S2" type="Label" parent="VBoxContainer/TitleContainer"]
+margin_left = 505.0
+margin_top = 20.0
+margin_right = 572.0
+margin_bottom = 143.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.996078, 0.501961, 0.0980392, 1 )
+custom_colors/font_outline_modulate = Color( 0.839216, 0.364706, 0.054902, 1 )
+text = "S"
+align = 3
+valign = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuContainer" type="VBoxContainer" parent="."]
+anchor_top = 0.468
+anchor_right = 1.0
+anchor_bottom = 0.468
+margin_top = -32.6
+margin_bottom = 32.4
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ThirdPartyLabel" type="Label" parent="MenuContainer"]
+margin_right = 640.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.996078, 0.501961, 0.0980392, 1 )
+custom_colors/font_outline_modulate = Color( 0.839216, 0.364706, 0.054902, 1 )
+text = "Video"
+align = 1
+valign = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MenuContainer"]
+margin_top = 25.0
+margin_right = 640.0
+margin_bottom = 65.0
+alignment = 1
+
+[node name="Message" type="Label" parent="MenuContainer/HBoxContainer2"]
+margin_left = 225.0
+margin_top = 9.0
+margin_right = 335.0
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
+custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
+text = "FullScreen"
+align = 1
+valign = 1
+
+[node name="CheckButton" type="CheckButton" parent="MenuContainer/HBoxContainer2"]
+margin_left = 339.0
+margin_right = 415.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
+align = 1
+
+[node name="QuitCenterContainer" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.729
+anchor_right = 0.5
+anchor_bottom = 0.729
+margin_left = -320.0
+margin_top = -33.72
+margin_right = 320.0
+margin_bottom = 33.28
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="QuitCenterContainer"]
+margin_left = 261.0
+margin_right = 379.0
+margin_bottom = 67.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color_disabled = Color( 0.658824, 0.6, 0.517647, 1 )
+custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
+custom_colors/font_color_hover = Color( 0.658824, 0.6, 0.517647, 1 )
+custom_colors/font_color_pressed = Color( 0.741176, 0.682353, 0.576471, 1 )
+shortcut = SubResource( 6 )
+text = "QUIT"
+flat = true
+[connection signal="pressed" from="MenuContainer/HBoxContainer2/CheckButton" to="." method="_on_CheckButton_pressed"]
+[connection signal="pressed" from="QuitCenterContainer/Quit" to="." method="_on_Quit_pressed"]
