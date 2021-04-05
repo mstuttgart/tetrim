@@ -1,6 +1,8 @@
 extends Control
 
 func _ready():
+    OS.window_fullscreen = StoreSettings.fullscreen
+
     $FadeBackground.visible = true
     $FadeBackground/AnimationPlayer.play("FadeIn")
     $BackgroundMusic.play()
