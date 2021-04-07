@@ -6,6 +6,7 @@ func _ready():
         $BackgroundMusic.play()
 
     $AudioBoxContainer/Music/MusicCheckButton.pressed = StoreSettings.audio_music
+    $AudioBoxContainer/Sfx/SfxCheckButton.pressed = StoreSettings.audio_sfx
     $VideoBoxContainer/FullScreen/FullScreenCheckButton.pressed = StoreSettings.fullscreen
 
 
@@ -15,6 +16,7 @@ func _on_Quit_pressed():
     # Update StoreSettings variables
     StoreSettings.fullscreen = $VideoBoxContainer/FullScreen/FullScreenCheckButton.pressed
     StoreSettings.audio_music = $AudioBoxContainer/Music/MusicCheckButton.pressed
+    StoreSettings.audio_sfx = $AudioBoxContainer/Sfx/SfxCheckButton.pressed
 
     # Save settings on file
     StoreSettings._save_settings()
