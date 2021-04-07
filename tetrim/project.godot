@@ -21,6 +21,11 @@ run/main_scene="res://TitleScreen.tscn"
 boot_splash/bg_color=Color( 0.156863, 0.156863, 0.156863, 1 )
 config/icon="res://icon.png"
 
+[autoload]
+
+StoreSettings="*res://StoreSettings.gd"
+BackgroundMusic="*res://BackgroundMusic.tscn"
+
 [display]
 
 window/size/width=640

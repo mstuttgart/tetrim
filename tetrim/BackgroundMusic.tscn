@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/Background_tune.ogg" type="AudioStream" id=1]
+[ext_resource path="res://BackgroundMusic.gd" type="Script" id=2]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+script = ExtResource( 2 )
