@@ -8,7 +8,7 @@ func _ready():
 
 
 func _on_Quit_pressed():
-    get_tree().change_scene("res://TitleScreen.tscn")
+    Utils.change_game_scene('res://TitleScreen.tscn')
 
     # Update StoreSettings variables
     StoreSettings.fullscreen = $VideoBoxContainer/FullScreen/FullScreenCheckButton.pressed

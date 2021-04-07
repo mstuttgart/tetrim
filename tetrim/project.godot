@@ -25,6 +25,7 @@ config/icon="res://icon.png"
 
 StoreSettings="*res://StoreSettings.gd"
 BackgroundMusic="*res://BackgroundMusic.tscn"
+Utils="*res://Utils.gd"
 
 [display]
 
@@ -33,6 +34,11 @@ window/size/height=700
 window/handheld/orientation="portrait"
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+
+[logging]
+
+file_logging/enable_file_logging=true
+file_logging/max_log_files=10
 
 [rendering]
 

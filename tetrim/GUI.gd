@@ -42,7 +42,7 @@ func _on_ButtonPauseResume_pressed():
 
 
 func _on_ButtonQuit_pressed():
-    get_tree().change_scene("res://TitleScreen.tscn")
+    Utils.change_game_scene('res://TitleScreen.tscn')
 
 
 func _on_Board_gameover():
