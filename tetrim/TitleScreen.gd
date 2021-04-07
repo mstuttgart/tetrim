@@ -7,8 +7,6 @@ func _ready():
     $FadeBackground.visible = true
     $FadeBackground/AnimationPlayer.play("FadeIn")
 
-    if StoreSettings.audio_music:
-        $BackgroundMusic.play()
 
 func _on_Play_pressed():
     $FadeBackground.visible = true

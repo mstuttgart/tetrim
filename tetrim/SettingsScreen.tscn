@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/ThaleahFat.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://SettingsScreen.gd" type="Script" id=2]
-[ext_resource path="res://assets/Background_tune.ogg" type="AudioStream" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 133
@@ -15,9 +14,6 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 22
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=5]
@@ -38,9 +34,6 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_top = 0.28
@@ -232,7 +225,6 @@ valign = 1
 margin_left = 339.0
 margin_right = 415.0
 margin_bottom = 40.0
-custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
 align = 1
 
@@ -283,7 +275,6 @@ valign = 1
 margin_left = 308.0
 margin_right = 384.0
 margin_bottom = 40.0
-custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
 align = 1
 
@@ -312,7 +303,6 @@ valign = 1
 margin_left = 317.0
 margin_right = 393.0
 margin_bottom = 40.0
-custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
 align = 1
 

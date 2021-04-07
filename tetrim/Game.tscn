@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Board.gd" type="Script" id=1]
 [ext_resource path="res://Position.tscn" type="PackedScene" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://GUI.gd" type="Script" id=4]
 [ext_resource path="res://assets/ThaleahFat.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://assets/tdlip.wav" type="AudioStream" id=6]
-[ext_resource path="res://assets/Background_tune.ogg" type="AudioStream" id=7]
 [ext_resource path="res://assets/gameover.wav" type="AudioStream" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -252,9 +251,6 @@ position = Vector2( 0, 16 )
 
 [node name="CleanLineSFX" type="AudioStreamPlayer2D" parent="CenterContainer/HBoxContainer/Board"]
 stream = ExtResource( 6 )
-
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="CenterContainer/HBoxContainer/Board"]
-stream = ExtResource( 7 )
 
 [node name="GameOverSFX" type="AudioStreamPlayer" parent="CenterContainer/HBoxContainer/Board"]
 stream = ExtResource( 8 )

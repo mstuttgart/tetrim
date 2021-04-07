@@ -2,9 +2,6 @@ extends ColorRect
 
 func _ready():
 
-    if StoreSettings.audio_music:
-        $BackgroundMusic.play()
-
     $AudioBoxContainer/Music/MusicCheckButton.pressed = StoreSettings.audio_music
     $AudioBoxContainer/Sfx/SfxCheckButton.pressed = StoreSettings.audio_sfx
     $VideoBoxContainer/FullScreen/FullScreenCheckButton.pressed = StoreSettings.fullscreen
@@ -28,6 +25,6 @@ func _on_FullScreenCheckButton_pressed():
 func _on_MusicCheckButton_pressed():
 
     if $AudioBoxContainer/Music/MusicCheckButton.pressed:
-        $BackgroundMusic.play()
+        BackgroundMusic.play()
     else:
-        $BackgroundMusic.stop()
+        BackgroundMusic.stop()
