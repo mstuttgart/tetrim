@@ -70,7 +70,8 @@ func _game_start():
     # Active state on PLAY
     _state = States.PLAY
 
-    $BackgroundMusic.play()
+    if StoreSettings.audio_music:
+        $BackgroundMusic.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
