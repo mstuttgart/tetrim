@@ -31,7 +31,7 @@ func destroy_tiles():
         if tile.get_parent():
             tile.get_parent().remove_child(tile)
             tile.remove_from_group("StuckBlocks")
-            tile.free()
+            tile.add_to_group("Junk")
 
     # Clear the list
     clear_tile_list()

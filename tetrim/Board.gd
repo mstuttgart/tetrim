@@ -111,7 +111,7 @@ func _get_player_block():
 
     if player_block:
         remove_child(player_block)
-        player_block.queue_free()
+        player_block.add_to_group('Junk')
 
     # Instance player block
     if next_block:
@@ -238,6 +238,7 @@ func _on_GUI_restart_game():
         pos.clear_tile_list()
 
     get_tree().call_group("StuckBlocks", "queue_free")
+    get_tree().call_group("Junk", "queue_free")
 
     if player_block:
         remove_child(player_block)
