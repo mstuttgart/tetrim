@@ -20,11 +20,11 @@ func _on_Board_update_score(score, lines):
 func _on_Board_update_next_block(next_block):
 
     if current_block:
-        $ContainerNextBlock/Background.remove_child(current_block)
+        $ContainerNextBlock/CenterContainer.remove_child(current_block)
 
     current_block = next_block
-    current_block.position = $ContainerNextBlock/Background/NextBlockPosition.position
-    $ContainerNextBlock/Background.add_child(current_block)
+    current_block.position = $ContainerNextBlock/CenterContainer/NextBlockPosition.position
+    $ContainerNextBlock/CenterContainer.add_child(current_block)
 
 
 func _on_ButtonPauseResume_pressed():
