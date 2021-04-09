@@ -3,10 +3,8 @@ extends KinematicBody2D
 # Declare member const here.
 const ANGLE = PI/2
 
-func _ready():
-    # Fiz block 'O' position, because the axis not in center of tile
-#    position.x += 16
-    pass
+func adjust_position():
+    position.x -= StoreSettings.TILE_SIZE / 2
 
 func rotate_block():
 
@@ -24,6 +22,8 @@ func rotate_block():
 
         $Shape_02/RayCast2D.cast_to = Vector2($Shape_02/RayCast2D.cast_to.y * -1, $Shape_02/RayCast2D.cast_to.x)
         $Shape_03/RayCast2D.cast_to = Vector2($Shape_03/RayCast2D.cast_to.y * -1, $Shape_03/RayCast2D.cast_to.x)
+
+        adjust_position()
 
 func _check_collision_on_rotate():
     var transform2d = Transform2D(rotation + ANGLE, position)

@@ -9,7 +9,6 @@ signal gameover
 enum States { STOP, PLAY, PAUSE }
 
 # Declare member const here.
-const TILE_SIZE = 32
 const FAST_DOWN_SPEED = 20
 const FAST_DOWN_POINT = 5
 
@@ -59,7 +58,7 @@ func _game_start():
     _fast_down = false
 
     # Instance vector
-    velocity_down = Vector2(0, 1).normalized() * TILE_SIZE
+    velocity_down = Vector2(0, 1).normalized() * StoreSettings.TILE_SIZE
 
     # Start timer of falling block
     $FallingTimer.start()
@@ -103,7 +102,7 @@ func _process(delta):
         player_block.move_and_collide(velocity_down)
 
     elif velocity.length() > 0:
-        velocity = velocity.normalized() * TILE_SIZE
+        velocity = velocity.normalized() * StoreSettings.TILE_SIZE
         player_block.move_and_collide(velocity)
 
 
@@ -126,6 +125,9 @@ func _get_player_block():
     # Add player to board tree
     add_child(player_block)
     player_block.position = $StartPosition.position
+
+    if player_block.get_name() == 'I' or player_block.get_name() == 'O':
+        player_block.adjust_position()
 
 func get_next_block():
     return block_list[randi() % block_list.size()].instance()

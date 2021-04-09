@@ -277,30 +277,34 @@ custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
 text = "NEXT"
 
-[node name="Background" type="ColorRect" parent="CenterContainer/HBoxContainer/GUI/ContainerNextBlock"]
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/HBoxContainer/GUI/ContainerNextBlock"]
 margin_top = 28.0
 margin_right = 160.0
-margin_bottom = 186.0
-rect_min_size = Vector2( 126, 158 )
-color = Color( 0.156863, 0.156863, 0.156863, 1 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
+margin_bottom = 188.0
 
-[node name="NextBlockPosition" type="Position2D" parent="CenterContainer/HBoxContainer/GUI/ContainerNextBlock/Background"]
-position = Vector2( 64, 92 )
-
-[node name="BackgroundBorder" type="ColorRect" parent="CenterContainer/HBoxContainer/GUI/ContainerNextBlock/Background"]
+[node name="BackgroundBorder" type="ColorRect" parent="CenterContainer/HBoxContainer/GUI/ContainerNextBlock/CenterContainer"]
 show_behind_parent = true
-margin_left = -2.0
-margin_top = -2.0
-margin_right = 162.0
+margin_right = 160.0
 margin_bottom = 160.0
+rect_min_size = Vector2( 160, 160 )
 color = Color( 0.921569, 0.858824, 0.698039, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Background" type="ColorRect" parent="CenterContainer/HBoxContainer/GUI/ContainerNextBlock/CenterContainer"]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 159.0
+margin_bottom = 159.0
+rect_min_size = Vector2( 158, 158 )
+color = Color( 0.156863, 0.156863, 0.156863, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextBlockPosition" type="Position2D" parent="CenterContainer/HBoxContainer/GUI/ContainerNextBlock/CenterContainer"]
+position = Vector2( 80, 80 )
 
 [node name="ContainerScore" type="VBoxContainer" parent="CenterContainer/HBoxContainer/GUI"]
 margin_left = 432.0
