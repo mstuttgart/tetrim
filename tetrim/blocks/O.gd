@@ -3,10 +3,8 @@ extends KinematicBody2D
 # Declare member const here.
 const ANGLE = PI/2
 
-func _ready():
-    # Fiz block 'O' position, because the axis not in center of tile
-#    position.x += 16
-    pass
+func adjust_position():
+    position.x -= StoreSettings.TILE_SIZE / 2
 
 func rotate_block():
 
