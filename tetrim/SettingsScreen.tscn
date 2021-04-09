@@ -4,8 +4,8 @@
 [ext_resource path="res://SettingsScreen.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=1]
-size = 133
-outline_size = 3
+size = 80
+outline_size = 1
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -16,15 +16,15 @@ font_data = ExtResource( 1 )
 size = 22
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 65
 font_data = ExtResource( 1 )
 
-[sub_resource type="InputEventAction" id=6]
+[sub_resource type="InputEventAction" id=5]
 action = "ui_cancel"
 
-[sub_resource type="ShortCut" id=7]
-shortcut = SubResource( 6 )
+[sub_resource type="ShortCut" id=6]
+shortcut = SubResource( 5 )
 
 [node name="CreditScreen" type="ColorRect"]
 anchor_right = 1.0
@@ -48,137 +48,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TitleContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="SettingsLabel" type="Label" parent="VBoxContainer"]
+margin_top = 44.0
 margin_right = 640.0
-margin_bottom = 163.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="S1" type="Label" parent="VBoxContainer/TitleContainer"]
-margin_left = 68.0
-margin_top = 20.0
-margin_right = 135.0
-margin_bottom = 143.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.984314, 0.286275, 0.203922, 1 )
-custom_colors/font_outline_modulate = Color( 0.8, 0.141176, 0.113725, 1 )
-text = "S"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="E" type="Label" parent="VBoxContainer/TitleContainer"]
-margin_left = 139.0
-margin_top = 20.0
-margin_right = 206.0
-margin_bottom = 143.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.721569, 0.733333, 0.14902, 1 )
-custom_colors/font_outline_modulate = Color( 0.596078, 0.592157, 0.101961, 1 )
-text = "E"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="T1" type="Label" parent="VBoxContainer/TitleContainer"]
-margin_left = 210.0
-margin_top = 20.0
-margin_right = 268.0
-margin_bottom = 143.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.980392, 0.741176, 0.184314, 1 )
-custom_colors/font_outline_modulate = Color( 0.843137, 0.6, 0.129412, 1 )
-text = "T"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="T2" type="Label" parent="VBoxContainer/TitleContainer"]
-margin_left = 272.0
-margin_top = 20.0
-margin_right = 330.0
-margin_bottom = 143.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.513726, 0.647059, 0.596078, 1 )
-custom_colors/font_outline_modulate = Color( 0.270588, 0.521569, 0.533333, 1 )
-text = "T"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="I" type="Label" parent="VBoxContainer/TitleContainer"]
-margin_left = 334.0
-margin_top = 20.0
-margin_right = 359.0
-margin_bottom = 143.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.827451, 0.52549, 0.607843, 1 )
-custom_colors/font_outline_modulate = Color( 0.694118, 0.384314, 0.52549, 1 )
-text = "I"
-align = 3
-valign = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="N" type="Label" parent="VBoxContainer/TitleContainer"]
-margin_left = 363.0
-margin_top = 20.0
-margin_right = 430.0
-margin_bottom = 143.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.556863, 0.752941, 0.462745, 1 )
-custom_colors/font_outline_modulate = Color( 0.407843, 0.615686, 0.415686, 1 )
-text = "N"
-align = 3
-valign = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="G" type="Label" parent="VBoxContainer/TitleContainer"]
-margin_left = 434.0
-margin_top = 20.0
-margin_right = 501.0
-margin_bottom = 143.0
+margin_bottom = 118.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
 custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
-text = "G"
-align = 3
-valign = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="S2" type="Label" parent="VBoxContainer/TitleContainer"]
-margin_left = 505.0
-margin_top = 20.0
-margin_right = 572.0
-margin_bottom = 143.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.996078, 0.501961, 0.0980392, 1 )
-custom_colors/font_outline_modulate = Color( 0.839216, 0.364706, 0.054902, 1 )
-text = "S"
-align = 3
-valign = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_colors/font_color_shadow = Color( 0.658824, 0.6, 0.517647, 1 )
+text = "Settings"
+align = 1
+valign = 1
 
 [node name="VideoBoxContainer" type="VBoxContainer" parent="."]
 anchor_top = 0.468
@@ -325,12 +205,12 @@ __meta__ = {
 margin_left = 261.0
 margin_right = 379.0
 margin_bottom = 67.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color_disabled = Color( 0.658824, 0.6, 0.517647, 1 )
 custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
 custom_colors/font_color_hover = Color( 0.658824, 0.6, 0.517647, 1 )
 custom_colors/font_color_pressed = Color( 0.741176, 0.682353, 0.576471, 1 )
-shortcut = SubResource( 7 )
+shortcut = SubResource( 6 )
 text = "QUIT"
 flat = true
 [connection signal="pressed" from="VideoBoxContainer/FullScreen/FullScreenCheckButton" to="." method="_on_FullScreenCheckButton_pressed"]
