@@ -126,6 +126,9 @@ func _get_player_block():
     add_child(player_block)
     player_block.position = $StartPosition.position
 
+    if player_block.get_name() == 'I' or player_block.get_name() == 'O':
+        player_block.adjust_position()
+
 func get_next_block():
     return block_list[randi() % block_list.size()].instance()
 
