@@ -7,6 +7,9 @@ var audio_music
 var audio_sfx
 var config
 
+# Declare member const here.
+const TILE_SIZE = 32
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
