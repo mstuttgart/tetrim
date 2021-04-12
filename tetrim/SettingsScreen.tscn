@@ -36,11 +36,11 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_top = 0.28
+anchor_top = 0.134
 anchor_right = 1.0
-anchor_bottom = 0.28
-margin_top = -81.4
-margin_bottom = 81.6
+anchor_bottom = 0.134
+margin_top = -81.2
+margin_bottom = 81.8
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
@@ -61,11 +61,11 @@ align = 1
 valign = 1
 
 [node name="VideoBoxContainer" type="VBoxContainer" parent="."]
-anchor_top = 0.468
+anchor_top = 0.279
 anchor_right = 1.0
-anchor_bottom = 0.468
-margin_top = -32.6
-margin_bottom = 32.4
+anchor_bottom = 0.279
+margin_top = -32.3
+margin_bottom = 32.7
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
@@ -109,13 +109,11 @@ custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
 align = 1
 
 [node name="AudioBoxContainer" type="VBoxContainer" parent="."]
-anchor_left = 0.029
-anchor_top = 0.569
+anchor_top = 0.434
 anchor_right = 1.0
-anchor_bottom = 0.569
-margin_left = -18.56
-margin_top = -32.3
-margin_bottom = 32.7
+anchor_bottom = 0.434
+margin_top = -54.8
+margin_bottom = 54.2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
@@ -186,15 +184,152 @@ margin_bottom = 40.0
 custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
 align = 1
 
+[node name="ControllersBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.029
+anchor_top = 0.569
+anchor_right = 1.0
+anchor_bottom = 0.569
+margin_left = -18.56
+margin_top = -18.3
+margin_bottom = 90.7
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ControllerLabel" type="Label" parent="ControllersBoxContainer"]
+margin_right = 640.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.996078, 0.501961, 0.0980392, 1 )
+custom_colors/font_outline_modulate = Color( 0.839216, 0.364706, 0.054902, 1 )
+text = "Controllers"
+align = 1
+valign = 1
+
+[node name="Rotate" type="HBoxContainer" parent="ControllersBoxContainer"]
+margin_top = 25.0
+margin_right = 640.0
+margin_bottom = 46.0
+alignment = 1
+
+[node name="Message" type="Label" parent="ControllersBoxContainer/Rotate"]
+margin_left = 268.0
+margin_right = 303.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
+custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
+text = "UP: "
+align = 1
+valign = 1
+
+[node name="Message2" type="Label" parent="ControllersBoxContainer/Rotate"]
+margin_left = 307.0
+margin_right = 371.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.996078, 0.501961, 0.0980392, 1 )
+custom_colors/font_outline_modulate = Color( 0.839216, 0.364706, 0.054902, 1 )
+text = "Rotate"
+align = 1
+valign = 1
+
+[node name="Move" type="HBoxContainer" parent="ControllersBoxContainer"]
+margin_top = 50.0
+margin_right = 640.0
+margin_bottom = 71.0
+alignment = 1
+
+[node name="Message" type="Label" parent="ControllersBoxContainer/Move"]
+margin_left = 210.0
+margin_right = 319.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
+custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
+text = "left/right: "
+align = 1
+valign = 1
+
+[node name="Message2" type="Label" parent="ControllersBoxContainer/Move"]
+margin_left = 323.0
+margin_right = 429.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.996078, 0.501961, 0.0980392, 1 )
+custom_colors/font_outline_modulate = Color( 0.839216, 0.364706, 0.054902, 1 )
+text = "Move Block"
+align = 1
+valign = 1
+
+[node name="MoveDown" type="HBoxContainer" parent="ControllersBoxContainer"]
+margin_top = 75.0
+margin_right = 640.0
+margin_bottom = 96.0
+alignment = 1
+
+[node name="Message" type="Label" parent="ControllersBoxContainer/MoveDown"]
+margin_left = 242.0
+margin_right = 299.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
+custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
+text = "Down: "
+align = 1
+valign = 1
+
+[node name="Message2" type="Label" parent="ControllersBoxContainer/MoveDown"]
+margin_left = 303.0
+margin_right = 397.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.996078, 0.501961, 0.0980392, 1 )
+custom_colors/font_outline_modulate = Color( 0.839216, 0.364706, 0.054902, 1 )
+text = "Fast Down"
+align = 1
+valign = 1
+
+[node name="PauseResume" type="HBoxContainer" parent="ControllersBoxContainer"]
+margin_top = 100.0
+margin_right = 640.0
+margin_bottom = 121.0
+alignment = 1
+
+[node name="Message" type="Label" parent="ControllersBoxContainer/PauseResume"]
+margin_left = 195.0
+margin_right = 263.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
+custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
+text = "SPACE: "
+align = 1
+valign = 1
+
+[node name="Message2" type="Label" parent="ControllersBoxContainer/PauseResume"]
+margin_left = 267.0
+margin_right = 445.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.996078, 0.501961, 0.0980392, 1 )
+custom_colors/font_outline_modulate = Color( 0.839216, 0.364706, 0.054902, 1 )
+text = "PAuse/Resume game"
+align = 1
+valign = 1
+
 [node name="QuitCenterContainer" type="CenterContainer" parent="."]
 anchor_left = 0.5
-anchor_top = 0.819
+anchor_top = 0.853
 anchor_right = 0.5
-anchor_bottom = 0.819
+anchor_bottom = 0.853
 margin_left = -320.0
-margin_top = -33.7201
+margin_top = -33.5201
 margin_right = 320.0
-margin_bottom = 33.2799
+margin_bottom = 33.4799
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
