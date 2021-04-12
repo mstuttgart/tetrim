@@ -1,7 +1,6 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Board.gd" type="Script" id=1]
-[ext_resource path="res://Position.tscn" type="PackedScene" id=2]
 [ext_resource path="res://theme.tres" type="Theme" id=3]
 [ext_resource path="res://GUI.gd" type="Script" id=4]
 [ext_resource path="res://assets/ThaleahFat.ttf" type="DynamicFontData" id=5]
@@ -186,68 +185,6 @@ wait_time = 0.5
 __meta__ = {
 "_editor_description_": "Timer to move block to down"
 }
-
-[node name="PositionCursor" type="Node2D" parent="CenterContainer/HBoxContainer/Board"]
-
-[node name="Position_00" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
-position = Vector2( 0, 624 )
-
-[node name="Position_01" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
-position = Vector2( 0, 592 )
-
-[node name="Position_02" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
-position = Vector2( 0, 560 )
-
-[node name="Position_03" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
-position = Vector2( 0, 528 )
-
-[node name="Position_04" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
-position = Vector2( 0, 496 )
-
-[node name="Position_05" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
-position = Vector2( 0, 464 )
-
-[node name="Position_06" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
-position = Vector2( 0, 432 )
-
-[node name="Position_07" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
-position = Vector2( 0, 400 )
-
-[node name="Position_08" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
-position = Vector2( 0, 368 )
-
-[node name="Position_09" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
-position = Vector2( 0, 336 )
-
-[node name="Position_10" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
-position = Vector2( 0, 304 )
-
-[node name="Position_11" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
-position = Vector2( 0, 272 )
-
-[node name="Position_12" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
-position = Vector2( 0, 240 )
-
-[node name="Position_13" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
-position = Vector2( 0, 208 )
-
-[node name="Position_14" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
-position = Vector2( 0, 176 )
-
-[node name="Position_15" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
-position = Vector2( 0, 144 )
-
-[node name="Position_16" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
-position = Vector2( 0, 112 )
-
-[node name="Position_17" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
-position = Vector2( 0, 80 )
-
-[node name="Position_18" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
-position = Vector2( 0, 48 )
-
-[node name="Position_19" parent="CenterContainer/HBoxContainer/Board/PositionCursor" instance=ExtResource( 2 )]
-position = Vector2( 0, 16 )
 
 [node name="CleanLineSFX" type="AudioStreamPlayer2D" parent="CenterContainer/HBoxContainer/Board"]
 stream = ExtResource( 6 )

@@ -25,6 +25,12 @@ var block_list = [
     preload("res://blocks/I.tscn"),
 ]
 
+# Positions list
+var position_cursor = {}
+
+const START_POSITION = StoreSettings.TILE_SIZE / 2
+const FINAL_POSITION = START_POSITION + StoreSettings.TILE_SIZE * 20
+
 var tile_scene = preload("res://blocks/Tile.tscn")
 
 # Keeps track of the current state
@@ -52,6 +58,12 @@ func _ready():
 
 
 func _game_start():
+
+    # Initializa position cursor
+    position_cursor = {}
+
+    for i in range(START_POSITION, FINAL_POSITION, StoreSettings.TILE_SIZE):
+        position_cursor[i] = []
 
     # Reset score
     _update_score(0, 0)
@@ -136,33 +148,37 @@ func _clear_line():
 
     # store complete line index from list
     var completed_line_index_list = []
-    var index = 0
 
-    for pos in $PositionCursor.get_children():
+    for i in position_cursor:
 
-        pos.clear_tile_list()
-
-        for tile in get_tree().get_nodes_in_group('StuckBlocks'):
-
-            if tile.position.y == pos.position.y:
-                pos.append_tile(tile)
-
-        # Area is complete (10 blocks)
-        if pos.tile_list_size() == 10:
+        # List is complete (10 blocks)
+        if position_cursor[i].size() == 10:
 
             # Delete shapes in list
-            pos.destroy_tiles()
-            completed_line_index_list.append(index)
+            for tile in position_cursor[i]:
+                remove_child(tile)
+                tile.remove_from_group("StuckBlocks")
+                tile.add_to_group("Junk")
 
-        index += 1
+            # Clear the list
+            position_cursor[i].clear()
 
-    # Move the tile _completed_lines down
+            # Store the index of clear line
+            completed_line_index_list.append(i)
+
+    # Move the tile _completed_lines down and above
     for idx in completed_line_index_list:
 
-        for pos in $PositionCursor.get_children().slice(idx, $PositionCursor.get_children().size() - 1):
+        for pos in range(idx, START_POSITION, -StoreSettings.TILE_SIZE):
 
-            for tile in pos.get_tile_list():
+            for tile in position_cursor[pos]:
                 tile.position += velocity_down
+
+                # Update the next tile position
+                position_cursor[int(tile.position.y)].append(tile)
+
+            # Clear the currente position list
+            position_cursor[pos].clear()
 
     if completed_line_index_list.size():
         var score_value = _score + 100 * pow(2, completed_line_index_list.size() - 1)
@@ -205,6 +221,9 @@ func _on_FallingTimer_timeout():
             tile_body.get_node("Sprite").modulate = tile.get_node("Sprite").modulate
             tile_body.position = tile.position + player_block.position
             add_child(tile_body)
+
+            if position_cursor.has(int(tile_body.position.y)):
+                position_cursor[int(tile_body.position.y)].append(tile_body)
 
         # Generate a new block to player
         _get_player_block()
