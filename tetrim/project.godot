@@ -27,6 +27,10 @@ StoreSettings="*res://StoreSettings.gd"
 BackgroundMusic="*res://BackgroundMusic.tscn"
 Utils="*res://Utils.gd"
 
+[debug]
+
+settings/fps/force_fps=60
+
 [display]
 
 window/size/width=640
