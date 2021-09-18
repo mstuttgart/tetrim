@@ -91,12 +91,7 @@ func _process(delta):
 
     var velocity = Vector2()
 
-    if Input.is_action_just_pressed("ui_up"):
-
-        # Rotate block and check collision rotate
-        player_block.rotate_block()
-
-    elif Input.is_action_just_pressed("ui_left"):
+    if Input.is_action_just_pressed("ui_left"):
         velocity.x -= 1
 
     elif Input.is_action_just_pressed("ui_right"):
@@ -116,6 +111,11 @@ func _process(delta):
     elif velocity.length() > 0:
         velocity = velocity.normalized() * StoreSettings.TILE_SIZE
         player_block.move_and_collide(velocity)
+
+    if Input.is_action_just_pressed("ui_up"):
+
+        # Rotate block and check collision rotate
+        player_block.rotate_block()
 
 
 func _get_player_block():
