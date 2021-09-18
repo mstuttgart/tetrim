@@ -7,20 +7,28 @@ func rotate_block():
 
     if not _check_collision_on_rotate():
 
+        var raycast: RayCast2D
+
         # Rotate tiles shapes.Change (x, y) by (-y, x) to rotate
-        $Shape_01.position = Vector2($Shape_01.position.y * -1, $Shape_01.position.x)
-        $Shape_02.position = Vector2($Shape_02.position.y * -1, $Shape_02.position.x)
-        $Shape_03.position = Vector2($Shape_03.position.y * -1, $Shape_03.position.x)
-        $Shape_04.position = Vector2($Shape_04.position.y * -1, $Shape_04.position.x)
+        for shape in get_children():
+            shape.position = Vector2(shape.position.y * -1, shape.position.x)
 
-        # Rotete de RayCast2D
-        $Shape_02/RayCast2D.position = Vector2($Shape_02/RayCast2D.position.y * -1, $Shape_02/RayCast2D.position.x)
-        $Shape_03/RayCast2D.position = Vector2($Shape_03/RayCast2D.position.y * -1, $Shape_03/RayCast2D.position.x)
+            # Rotate raycast of shape
+            if shape.has_node('RayCast2D'):
+                raycast = shape.get_node('RayCast2D')
 
-        $Shape_02/RayCast2D.cast_to = Vector2($Shape_02/RayCast2D.cast_to.y * -1, $Shape_02/RayCast2D.cast_to.x)
-        $Shape_03/RayCast2D.cast_to = Vector2($Shape_03/RayCast2D.cast_to.y * -1, $Shape_03/RayCast2D.cast_to.x)
+                raycast.position = Vector2(raycast.position.y * -1, raycast.position.x)
+                raycast.cast_to = Vector2(raycast.cast_to.y * -1, raycast.cast_to.x)
+
 
 func _check_collision_on_rotate():
-    var transform2d = Transform2D(rotation + ANGLE, position)
-    return $Shape_02/RayCast2D.is_colliding() or $Shape_03/RayCast2D.is_colliding() or test_move(transform2d, Vector2(0, 0), false)
+
+    var _collision = false
+
+    for shape in get_children():
+
+        if shape.has_node('RayCast2D'):
+            _collision = _collision or shape.get_node('RayCast2D').is_colliding()
+
+    return _collision
 
