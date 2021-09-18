@@ -36,11 +36,6 @@ __meta__ = {
 modulate = Color( 0.721569, 0.733333, 0.14902, 1 )
 texture = ExtResource( 1 )
 
-[node name="RayCast2D" type="RayCast2D" parent="Shape_02"]
-position = Vector2( 0, 48 )
-enabled = true
-cast_to = Vector2( 0, 32 )
-
 [node name="Shape_03" type="CollisionShape2D" parent="."]
 position = Vector2( -16, 16 )
 shape = SubResource( 1 )
@@ -51,11 +46,6 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="Shape_03"]
 modulate = Color( 0.721569, 0.733333, 0.14902, 1 )
 texture = ExtResource( 1 )
-
-[node name="RayCast2D" type="RayCast2D" parent="Shape_03"]
-position = Vector2( 0, -48 )
-enabled = true
-cast_to = Vector2( 0, -32 )
 
 [node name="Shape_04" type="CollisionShape2D" parent="."]
 position = Vector2( 16, 16 )
