@@ -4,7 +4,7 @@
 [ext_resource path="res://CreditScreen.gd" type="Script" id=2]
 [ext_resource path="res://assets/Background_tune.ogg" type="AudioStream" id=3]
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=1]
 size = 80
 outline_size = 1
 font_data = ExtResource( 1 )
@@ -56,7 +56,7 @@ __meta__ = {
 margin_top = 32.0
 margin_right = 640.0
 margin_bottom = 106.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
 custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
 custom_colors/font_color_shadow = Color( 0.658824, 0.6, 0.517647, 1 )
@@ -140,6 +140,69 @@ custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.996078, 0.501961, 0.0980392, 1 )
 custom_colors/font_outline_modulate = Color( 0.839216, 0.364706, 0.054902, 1 )
 text = "Tiny Worlds"
+align = 1
+valign = 1
+
+[node name="MenuContainer2" type="VBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = 48.0
+margin_bottom = 94.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ThirdPartyLabel" type="Label" parent="MenuContainer2"]
+visible = false
+margin_right = 640.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.996078, 0.501961, 0.0980392, 1 )
+custom_colors/font_outline_modulate = Color( 0.839216, 0.364706, 0.054902, 1 )
+text = "Tetrim Made with godot engine"
+align = 1
+valign = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MenuContainer2"]
+margin_top = 12.0
+margin_right = 640.0
+margin_bottom = 33.0
+alignment = 1
+
+[node name="Name2" type="Label" parent="MenuContainer2/HBoxContainer2"]
+margin_left = 184.0
+margin_right = 241.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.996078, 0.501961, 0.0980392, 1 )
+custom_colors/font_outline_modulate = Color( 0.839216, 0.364706, 0.054902, 1 )
+text = "tetrim"
+align = 1
+valign = 1
+
+[node name="Message" type="Label" parent="MenuContainer2/HBoxContainer2"]
+margin_left = 245.0
+margin_right = 332.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
+custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
+text = "made with"
+align = 1
+valign = 1
+
+[node name="Name" type="Label" parent="MenuContainer2/HBoxContainer2"]
+margin_left = 336.0
+margin_right = 456.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.996078, 0.501961, 0.0980392, 1 )
+custom_colors/font_outline_modulate = Color( 0.839216, 0.364706, 0.054902, 1 )
+text = "Godot engine"
 align = 1
 valign = 1
 
