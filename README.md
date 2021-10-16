@@ -1,4 +1,15 @@
-# Tetrim
+<h1 align="center">
+  <br>
+  <a href="https://mstuttgart.itch.io/tetrim">
+  <img src="https://raw.githubusercontent.com/mstuttgart/tetrim/develop/data/icon.png?token=AB6LZFHZ7TWCQ4GF3XNUQY3BNMPCY" width="10%"></a>
+  <br>
+  Tetrim
+  <br>
+</h1>
+
+<p align="center">Tetrim is a minimalist clone of the popular game Tetris</p>
+
+## About
 
 Tetrim is a minimalist clone of the popular game Tetris, developed by Alexey Pajitnov, Dmitry Pavlovsky and Vadim Gerasimov, and released in June 1984.
 
