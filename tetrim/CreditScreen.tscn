@@ -143,29 +143,46 @@ text = "Tiny Worlds"
 align = 1
 valign = 1
 
+[node name="HBoxContainer3" type="HBoxContainer" parent="MenuContainer"]
+margin_top = 50.0
+margin_right = 640.0
+margin_bottom = 71.0
+alignment = 1
+
+[node name="Message" type="Label" parent="MenuContainer/HBoxContainer3"]
+margin_left = 112.0
+margin_right = 455.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
+custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
+text = "Music 'Deck the Halls Jazz Loop' by "
+align = 1
+valign = 1
+
+[node name="Name" type="Label" parent="MenuContainer/HBoxContainer3"]
+margin_left = 459.0
+margin_right = 528.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.996078, 0.501961, 0.0980392, 1 )
+custom_colors/font_outline_modulate = Color( 0.839216, 0.364706, 0.054902, 1 )
+text = "timbeek"
+align = 1
+valign = 1
+
 [node name="MenuContainer2" type="VBoxContainer" parent="."]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = 48.0
-margin_bottom = 94.0
+margin_top = 77.0
+margin_bottom = 123.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="ThirdPartyLabel" type="Label" parent="MenuContainer2"]
-visible = false
-margin_right = 640.0
-margin_bottom = 21.0
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0.996078, 0.501961, 0.0980392, 1 )
-custom_colors/font_outline_modulate = Color( 0.839216, 0.364706, 0.054902, 1 )
-text = "Tetrim Made with godot engine"
-align = 1
-valign = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MenuContainer2"]
 margin_top = 12.0
@@ -206,15 +223,49 @@ text = "Godot engine"
 align = 1
 valign = 1
 
+[node name="MenuContainer3" type="VBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = 142.0
+margin_bottom = 188.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Message" type="Label" parent="MenuContainer3"]
+margin_right = 640.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.921569, 0.858824, 0.698039, 1 )
+custom_colors/font_outline_modulate = Color( 0.658824, 0.6, 0.517647, 1 )
+text = "To more info, please visit: "
+align = 1
+valign = 1
+
+[node name="Name" type="Label" parent="MenuContainer3"]
+margin_top = 25.0
+margin_right = 640.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.996078, 0.501961, 0.0980392, 1 )
+custom_colors/font_outline_modulate = Color( 0.839216, 0.364706, 0.054902, 1 )
+text = "https://mstuttgart.itch.io/tetrim"
+align = 1
+valign = 1
+
 [node name="QuitCenterContainer" type="CenterContainer" parent="."]
 anchor_left = 0.5
-anchor_top = 0.729
+anchor_top = 0.836
 anchor_right = 0.5
-anchor_bottom = 0.729
+anchor_bottom = 0.836
 margin_left = -320.0
-margin_top = -33.72
+margin_top = -33.6201
 margin_right = 320.0
-margin_bottom = 33.28
+margin_bottom = 33.3799
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
