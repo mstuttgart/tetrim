@@ -41,7 +41,7 @@ Despite being a simple game, I encountered many challenges during its developmen
 
 ## Install 
 
-This game is avaliable to download in Ithio.io project page:
+This game is avaliable to download in Itch.io project page:
 
 <p align="center">
   <a href="https://mstuttgart.itch.io/tetrim">
@@ -77,6 +77,8 @@ The color palette used in the game is the [Gruvbox](https://github.com/morhetz/g
 Special thanks to the team responsible for [Godot Engine](https://godotengine.org/), for developing a high quality, easy to use and free engine.
 
 This project has mixed licencing. You are free to copy, redistribute and/or modify aspects of this work under the terms of each licence accordingly (unless otherwise specified).
+
+----------------------
 
 Tetris, developed by Alexey Pajitnov, Dmitry Pavlovsky and Vadim Gerasimov.
 
