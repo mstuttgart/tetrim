@@ -8,13 +8,13 @@
 
 <p align="center">
   <a href="https://github.com/mstuttgart/tetrim/releases">
-        <img src="https://img.shields.io/github/downloads/mstuttgart/tetrim/total.svg?style=flat-square" alt="Github All Releases">
+        <img src="https://img.shields.io/github/downloads/mstuttgart/tetrim/total.svg?style=for-the-badge" alt="Github All Releases">
   </a>
     <a href="https://github.com/mstuttgart/tetrim/releases/latest">
-      <img src="https://img.shields.io/github/release/mstuttgart/tetrim.svg?style=flat-square" alt="Release">
+      <img src="https://img.shields.io/github/release/mstuttgart/tetrim.svg?style=for-the-badge" alt="Release">
   </a>
     <a href="https://github.com/mstuttgart/tetrim/blob/develop/LICENSE">
-      <img src="https://img.shields.io/github/license/mstuttgart/tetrim.svg?style=flat-square" alt="Ratings">
+      <img src="https://img.shields.io/github/license/mstuttgart/tetrim.svg?style=for-the-badge" alt="License">
   </a>
 </p>  
 
