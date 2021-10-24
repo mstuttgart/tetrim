@@ -1,8 +1,8 @@
 <p align="center">
   <a href="https://pypi.org/project/pycep-correios/">
-    <img src="data/icon.png" width="30%">
+    <img src="data/icon.png" width="15%">
   </a>
-  <h3 align="center">Tetrim</h3>
+<!--   <h3 align="center">Tetrim</h3> -->
   <h4 align="center">Tetrim is a minimalist clone of the popular game Tetris</h4>
 </p>
 
@@ -19,10 +19,10 @@
 </p>  
 
 <p align="center">
-  <a href="#instalação">Instalação</a> |
-  <a href="#como-usar">Como Usar</a> |
-  <a href="#como-contribuir">Como Contribuir</a> |
-  <a href="#créditos">Créditos</a>
+  <a href="#about">About</a> |
+  <a href="#install">Install</a> |
+  <a href="#how-to-play">How to Play</a> |
+  <a href="#credits">Credits</a>
 </p>
 
 ## About
@@ -30,6 +30,12 @@
 Tetrim is a minimalist clone of the popular game Tetris, developed by Alexey Pajitnov, Dmitry Pavlovsky and Vadim Gerasimov, and released in June 1984.
 
 The project arose as an opportunity to study the Godot Engine and as the realization of a simple desire I have had for a long time to create a game, even if simple, from beginning to end.
+
+<p align="center">
+  <a href="https://mstuttgart.itch.io/tetrim">
+    <img src="https://img.itch.zone/aW1hZ2UvOTc3MDU5LzcyMTU3MTcucG5n/original/qqgPI8.png" width="80%" alt="Screenshot">
+  </a>
+</p>
 
 Despite being a simple game, I encountered many challenges during its development, but I was very satisfied with the final result and I hope you have fun too.
 
@@ -39,10 +45,11 @@ This game is avaliable to download in Ithio.io project page:
 
 <p align="center">
   <a href="https://mstuttgart.itch.io/tetrim">
-    <img src="https://static.itch.io/images/badge.svg" width="30%" alt="Version">
+    <img src="https://static.itch.io/images/badge.svg" width="20%" alt="Version">
   </a>
 </p>
 
+or on release page [here](https://github.com/mstuttgart/tetrim/releases).
 
 ## How to play
 
@@ -50,11 +57,11 @@ Like the original game, Tetrim has few commands. I developed the game with the i
 
 Anyway, let's go to the game controls:
 
-* :arrow_left: and :arrow_right: Arrow: lateral tetramino movement;
-* :up_right:: rotation tetramino;
-* :arrow_right: drop tetramino;
-* :space: pause the game
-* :esc: returns to title screen and ends game
+* <kbd>LEFT</kbd> and <kbd>RIGHT</kbd>: lateral tetramino movement;
+* <kbd>UP</kbd>: rotation tetramino;
+* <kbd>DOWN</kbd>: drop tetramino;
+* <kbd>SPACE</kbd>: pause/resume the game;
+* <kbd>ESC</kbd>: return to Title Screen and ends game.
 
 ## Credits
 
