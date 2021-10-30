@@ -3,7 +3,7 @@
     <img src="data/icon.png" width="15%">
   </a>
 <!--   <h3 align="center">Tetrim</h3> -->
-  <h4 align="center">Tetrim is a minimalist clone of the popular game Tetris</h4>
+  <h4 align="center">A minimalist Tetris clone </h4>
 </p>
 
 <p align="center">
